@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hiraku</title>
+	<link rel="stylesheet" type="text/css" href="../hiraku.css">
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="offcanvas-right">
+	<ul class="offcanvasList">
+		<li>Right Menu1</li>
+		<li>Right Menu2</li>
+		<li>Right Menu3</li>
+		<li>Right Menu4</li>
+		<li>Right Menu5</li>
+		<li>Right Menu6</li>
+		<li>Right Menu7</li>
+		<li>Right Menu8</li>
+		<li>Right Menu9</li>
+		<li>Right Menu10</li>
+		<li>Right Menu11</li>
+		<li>Right Menu12</li>
+		<li>Right Menu13</li>
+		<li>Right Menu14</li>
+		<li>Right Menu15</li>
+		<li>Right Menu16</li>
+		<li>Right Menu17</li>
+		<li>Right Menu18</li>
+		<li>Right Menu19</li>
+		<li>Right Menu20</li>
+	</ul>
+</div>
+<div class="offcanvas-left">
+<ul class="offcanvasList">
+		<li>Left Menu1</li>
+		<li>Left Menu2</li>
+		<li>Left Menu3</li>
+		<li>Left Menu4</li>
+		<li>Left Menu5</li>
+		<li>Left Menu6</li>
+		<li>Left Menu7</li>
+		<li>Left Menu8</li>
+		<li>Left Menu9</li>
+		<li>Left Menu10</li>
+		<li>Left Menu11</li>
+		<li>Left Menu12</li>
+		<li>Left Menu13</li>
+		<li>Left Menu14</li>
+		<li>Left Menu15</li>
+		<li>Left Menu16</li>
+		<li>Left Menu17</li>
+		<li>Left Menu18</li>
+		<li>Left Menu19</li>
+		<li>Left Menu20</li>
+	</ul>	
+</div>
+<header id="header">
+	<button id="offcanvas-btn-left"></button>
+	<button id="offcanvas-btn-right"></button>
+</header>
+<div id="mainArea">
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+<script
+  src="http://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script src="../hiraku.js"></script>
+<script>
+$(function(){
+	$(".offcanvas-right").offcanvas({
+		btn:"#offcanvas-btn-right",
+		fixedHeader:"#header",
+		direction:"right"
+	});
+	$(".offcanvas-left").offcanvas({
+		btn:"#offcanvas-btn-left",
+		fixedHeader:"#header",
+		direction:"left"
+	});
+});
+</script>
+</body>
+</html>
