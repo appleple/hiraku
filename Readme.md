@@ -1,13 +1,20 @@
 # Hiraku
 A Drawer Navigation menu for your mobile webs
 
-
 ## Installation
 
+npm
+
+```
+npm install Hiraku
+```
+
+## Setup
+
 ```html
-<link rel="stylesheet" type="text/css" href="./hiraku.css">
+<link rel="stylesheet" type="text/css" href="./src/hiraku.css">
 <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
-<script src="./hiraku.js"></script>
+<script src="./src/hiraku.js"></script>
 ```
 
 ## How to use
@@ -31,7 +38,7 @@ $(".offcanvas-left").offcanvas({
 });
 ```
 
-###
+### Open drawer menu from right side
 
 ```html
 <p><a class="acms-admin-btn" id="offcanvas-btn-right" href="#">Open Drawer menu from right side</a></p>

@@ -238,7 +238,7 @@ clone@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/clone/-/clone-0.2.0.tgz#c6126a90ad4f72dbf5acdb243cc37724fe93fc1f"
 
-clone@^1.0.0, clone@^1.0.2, clone@~1.0.0:
+clone@^1.0.0, clone@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.2.tgz#260b7a99ebb1edfe247538175f783243cb19d149"
 
@@ -316,13 +316,6 @@ csscomb@^3.1.7:
     csscomb-core "3.0.0-3.1"
     gonzales-pe "3.0.0-28"
     vow "0.4.4"
-
-csslint@^1.0.2:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/csslint/-/csslint-1.0.4.tgz#0d3907933cc3f04b56960496d573387fbe9bb1e7"
-  dependencies:
-    clone "~1.0.0"
-    parserlib "~1.0.0"
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
@@ -779,15 +772,6 @@ gulp-csscomb@*:
     gulp-util "^3.0.7"
     through2 "^2.0.1"
 
-gulp-csslint@*:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/gulp-csslint/-/gulp-csslint-1.0.0.tgz#d95a56f7719466147fa9a07302fdba1690391523"
-  dependencies:
-    csslint "^1.0.2"
-    gulp-util "^3.0.7"
-    rcloader "^0.2.1"
-    through2 "^2.0.1"
-
 gulp-merge-media-queries@*:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/gulp-merge-media-queries/-/gulp-merge-media-queries-0.2.1.tgz#836e5e10e578e98f9ae9823deebc5d9546217830"
@@ -925,6 +909,10 @@ hawk@~3.1.3:
     cryptiles "2.x.x"
     hoek "2.x.x"
     sntp "1.x.x"
+
+Hiraku:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/Hiraku/-/Hiraku-0.0.1.tgz#2d11d638d7ccfecb2e64ee260cf3fbb4b5fdc516"
 
 hoek@2.x.x:
   version "2.16.3"
@@ -1254,7 +1242,7 @@ lodash._shimkeys@~2.4.1:
   dependencies:
     lodash._objecttypes "~2.4.1"
 
-lodash.assign@^4.0.3, lodash.assign@^4.0.6, lodash.assign@^4.0.8, lodash.assign@^4.2.0:
+lodash.assign@^4.0.3, lodash.assign@^4.0.6, lodash.assign@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/lodash.assign/-/lodash.assign-4.2.0.tgz#0d99f3ccd7a6d261d19bdaeb9245005d285808e7"
 
@@ -1299,10 +1287,6 @@ lodash.isempty@^4.2.1:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.isempty/-/lodash.isempty-4.4.0.tgz#6f86cbedd8be4ec987be9aaf33c9684db1b31e7e"
 
-lodash.isobject@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/lodash.isobject/-/lodash.isobject-3.0.2.tgz#3c8fb8d5b5bf4bf90ae06e14f2a530a4ed935e1d"
-
 lodash.isobject@~2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/lodash.isobject/-/lodash.isobject-2.4.1.tgz#5a2e47fe69953f1ee631a7eba1fe64d2d06558f5"
@@ -1336,10 +1320,6 @@ lodash.keys@~2.4.1:
 lodash.mapvalues@^4.4.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.mapvalues/-/lodash.mapvalues-4.6.0.tgz#1bafa5005de9dd6f4f26668c30ca37230cc9689c"
-
-lodash.merge@^4.3.5:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.0.tgz#69884ba144ac33fe699737a6086deffadd0f89c5"
 
 lodash.pick@^4.2.1:
   version "4.4.0"
@@ -1722,10 +1702,6 @@ parse-json@^2.2.0:
   dependencies:
     error-ex "^1.2.0"
 
-parserlib@~1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/parserlib/-/parserlib-1.0.0.tgz#88340e7e8d95bac9e09236742eef53bec1e4b30f"
-
 path-array@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/path-array/-/path-array-1.0.1.tgz#7e2f0f35f07a2015122b868b7eac0eb2c4fec271"
@@ -1817,21 +1793,6 @@ randomatic@^1.1.3:
   dependencies:
     is-number "^2.0.2"
     kind-of "^3.0.2"
-
-rcfinder@^0.1.6:
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/rcfinder/-/rcfinder-0.1.9.tgz#f3e80f387ddf9ae80ae30a4100329642eae81115"
-  dependencies:
-    lodash.clonedeep "^4.3.2"
-
-rcloader@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/rcloader/-/rcloader-0.2.1.tgz#642238fae4ffff4b70ddaf79ea9e8c66b5f414c0"
-  dependencies:
-    lodash.assign "^4.0.8"
-    lodash.isobject "^3.0.2"
-    lodash.merge "^4.3.5"
-    rcfinder "^0.1.6"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
