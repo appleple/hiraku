@@ -1,45 +1,49 @@
 # Hiraku
-「hiraku」は下記のようなオフキャンバスメニューを実現するためのjQuery用プラグインです。
+A Drawer Navigation menu for your mobile webs
 
-## 使い方
 
-### CSS及びJavaScriptの読み込み
+## Installation
 
 ```html
 <link rel="stylesheet" type="text/css" href="./hiraku.css">
 <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="./hiraku.js"></script>
 ```
-### オフキャンバスメニューを左に開閉
+
+## How to use
+
+### Open drawer menu from left side
 
 ```html
-<p><a class="acms-admin-btn" id="offcanvas-btn-left" href="#">オフキャンバスを左に開閉</a></p>
+<p><a class="acms-admin-btn" id="offcanvas-btn-left" href="#">Open Drawer menu from left side</a></p>
 <div class="offcanvas-left">
-    ここにオフキャンバスメニューの項目が入ります。
+    Drawer menu's contents here
 </div>
 ```
 
 ```js
 $(".offcanvas-left").offcanvas({
-	btn:"#offcanvas-btn-left",//オフキャンバスを開くためのボタン
-	fixedHeader:".js-offcanvas-header",//オフキャンバスメニュー開閉時にヘッダーを固定する場合に指定する
-	direction:"left"//オフキャンバスメニューを開く方向を指定する
+	btn:"#offcanvas-btn-left",
+	//Button selector to open the offcanvas menu
+	fixedHeader:".js-offcanvas-header",
+	//If you want to fix header, you may want to set the selector here
+	direction:"left"
 });
 ```
 
-### オフキャンバスメニューを右に開閉
+###
 
 ```html
-<p><a class="acms-admin-btn" id="offcanvas-btn-right" href="#">オフキャンバスを左に開閉</a></p>
+<p><a class="acms-admin-btn" id="offcanvas-btn-right" href="#">Open Drawer menu from right side</a></p>
 <div class="offcanvas-left">
-    ここにオフキャンバスメニューの項目が入ります。
+    Drawer menu's contents here
 </div>
 ```
 
 ```js
 $(".offcanvas-right").offcanvas({
-	btn:"#offcanvas-btn-right",//オフキャンバスを開くためのボタン
-	fixedHeader:".js-offcanvas-header",//オフキャンバスメニュー開閉時にヘッダーを固定する場合に指定する
-	direction:"right"//オフキャンバスメニューを開く方向を指定する
+	btn:"#offcanvas-btn-right",
+	fixedHeader:".js-offcanvas-header",
+	direction:"right"
 });
 ```
