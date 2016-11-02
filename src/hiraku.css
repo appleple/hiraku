@@ -4,6 +4,18 @@
  *
  */
 
+/*
+ * Hiraku Ver.1.0.0 (https://www.appleple.com)
+ * Copyright appleple | MIT License
+ *
+ */
+
+/*
+ * Hiraku Ver.1.0.0 (https://www.appleple.com)
+ * Copyright appleple | MIT License
+ *
+ */
+
 .js-hiraku-offcanvas {
 	position: fixed;
 	z-index: 100001;
@@ -108,5 +120,31 @@
 
 .js-hiraku-offcanvas-body-left .js-hiraku-header-fixed {
 	margin-left: 70%;
+}
+
+/*
+ * Hiraku Ver.1.0.0 (https://www.appleple.com)
+ * Copyright appleple | MIT License
+ *
+ */
+
+.hiraku-open-btn {
+	width: 35px;
+	padding: 6px;
+	cursor: pointer;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	background: transparent;
+}
+
+.hiraku-open-btn-line {
+	display: block;
+	height: 2px;
+	margin-bottom: 5px;
+	background-color: #ccc;
+}
+
+.hiraku-open-btn-line:last-child {
+	margin-bottom: 0;
 }
 

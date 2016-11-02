@@ -1,0 +1,24 @@
+/*
+ * Hiraku Ver.1.0.0 (https://www.appleple.com)
+ * Copyright appleple | MIT License
+ *
+ */
+.hiraku-open-btn {
+	background: transparent;
+	border: 1px solid #ccc;
+	padding: 6px;
+	width: 35px;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+.hiraku-open-btn-line {
+	background-color: #ccc;
+	height: 2px;
+	display: block;
+	margin-bottom: 5px;
+}
+
+.hiraku-open-btn-line:last-child {
+	margin-bottom: 0;
+}

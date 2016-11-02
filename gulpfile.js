@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
-var csslint = require('gulp-csslint');
 var autoPrefixer = require('gulp-autoprefixer');
 //if node version is lower than v.0.1.2
 require('es6-promise').polyfill();
@@ -21,7 +20,6 @@ gulp.task('sass',function(){
 		.pipe(autoPrefixer())
 		.pipe(cssComb())
 		.pipe(cmq({log:true}))
-		.pipe(csslint())
 		.pipe(gulp.dest('src/'))
 		.pipe(rename({
 			suffix: '.min'
