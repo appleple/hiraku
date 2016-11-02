@@ -27,14 +27,6 @@
 	z-index: 0;
 }
 
-// .js-hiraku-offcanvas-body:before{
-// 	position: absolute;
-// 	top: 0;
-// 	left: 0;
-// 	content: "";
-// 	display: block;
-// }
-
 .js-hiraku-offcanvas-body-right {
 	overflow-y: hidden;
 	left: (- $side-menu-width);

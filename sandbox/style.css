@@ -14,12 +14,13 @@ body {
 	padding: 10px;
 	text-align: center;
 	text-align: center;
-	background-color: #FFF;
+	background-color: #fff;
 }
 
 .offcanvas-header-title {
 	line-height: 30px;
 	display: inline-block;
+	font-weight: bold;
 }
 
 .offcanvas-main {
