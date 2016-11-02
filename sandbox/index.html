@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="offcanvas-right">
-	<ul class="offcanvasList">
+	<ul class="offcanvas-list">
 		<li>Right Menu1</li>
 		<li>Right Menu2</li>
 		<li>Right Menu3</li>
@@ -32,7 +32,7 @@
 	</ul>
 </div>
 <div class="offcanvas-left">
-<ul class="offcanvasList">
+<ul class="offcanvas-list">
 		<li>Left Menu1</li>
 		<li>Left Menu2</li>
 		<li>Left Menu3</li>
@@ -55,11 +55,20 @@
 		<li>Left Menu20</li>
 	</ul>
 </div>
-<header id="header">
-	<button id="offcanvas-btn-left"></button>
-	<button id="offcanvas-btn-right"></button>
+<header class="offcanvas-header" id="header">
+	Hiraku
+	<button class="offcanvas-btn offcanvas-btn-left" id="offcanvas-btn-left">
+		<span class="offcanvas-btn-line"></span>
+		<span class="offcanvas-btn-line"></span>
+		<span class="offcanvas-btn-line"></span>
+	</button>
+	<button class="offcanvas-btn offcanvas-btn-right" id="offcanvas-btn-right">
+		<span class="offcanvas-btn-line"></span>
+		<span class="offcanvas-btn-line"></span>
+		<span class="offcanvas-btn-line"></span>
+	</button>
 </header>
-<div id="mainArea">
+<div class="offcanvas-main">
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

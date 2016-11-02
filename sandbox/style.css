@@ -1,54 +1,60 @@
 body {
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
-#header {
-  background-color: #333;
-  height: 50px;
+.offcanvas-header {
+	background-color: #333;
+	height: 30px;
+	text-align: center;
+	color: #fff;
 }
 
-#offcanvas-btn-right {
-  background-color: #fff;
-  width: 30px;
-  height: 30px;
-  margin: 10px 20px;
-  float: right;
+.offcanvas-btn {
+	background-color: #333;
+	border: none;
+	width: 30px;
+	height: 30px;
+	vertical-align: middle;
+	padding: 7px 2px;
 }
 
-#offcanvas-btn-left {
-  background-color: #fff;
-  width: 30px;
-  height: 30px;
-  margin: 10px 20px;
-  float: left;
+.offcanvas-btn-right {
+	border-left: 1px solid #666;
+	float: right;
 }
 
-#mainArea {
-  padding: 100px 20px;
-  height: 1200px;
-  background-image: -moz-linear-gradient(top, #e1e1e1, #000000);
-  background-image: -ms-linear-gradient(top, #e1e1e1, #000000);
-  background-image: -o-linear-gradient(top, #e1e1e1, #000000);
-  background-image: -webkit-gradient(linear, center top, center bottom, from(#e1e1e1), to(#000000));
-  background-image: -webkit-linear-gradient(top, #e1e1e1, #000000);
-  background-image: linear-gradient(top, #e1e1e1, #000000);
+.offcanvas-btn-left {
+	border-right: 1px solid #666;
+	float: left;
 }
 
-.offcanvasList {
-  background-color: #333333;
-  color: #ffffff;
-  padding: 0;
-  margin: 0;
+.offcanvas-btn-line {
+	background-color: #fff;
+	height: 1px;
+	display: block;
+	margin-bottom: 6px;
 }
 
-.offcanvasList li {
-  list-style-type: none;
-  padding: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.offcanvas-main {
+	padding: 100px 20px;
+	height: 1200px;
+}
+
+.offcanvas-list {
+	background-color: #333333;
+	color: #ffffff;
+	padding: 0;
+	margin: 0;
+}
+
+.offcanvas-list li {
+	list-style-type: none;
+	padding: 10px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .offcanvas-right,
 .offcanvas-left {
-  display: none;
+	display: none;
 }
