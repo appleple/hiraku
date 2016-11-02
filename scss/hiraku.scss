@@ -5,6 +5,7 @@
  */
 $side-menu-width: 70%;
 $animation: 0.3s ease-in-out;
+$offcanvas-overlay: rgba(0, 0, 0, 0.3);
 
 .js-hiraku-offcanvas {
 	display: none;
@@ -16,7 +17,7 @@ $animation: 0.3s ease-in-out;
 	z-index: 100001;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.3);
+	background: $offcanvas-overlay;
 }
 
 .js-hiraku-offcanvas-open {

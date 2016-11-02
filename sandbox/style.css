@@ -5,18 +5,25 @@ body {
 
 .offcanvas-header {
 	background-color: #333;
-	height: 30px;
+	height: 40px;
 	text-align: center;
 	color: #fff;
+	text-align: center;
+}
+
+.offcanvas-header-title {
+	height: 40px;
+	line-height: 40px;
+	display: inline-block;
 }
 
 .offcanvas-btn {
 	background-color: #333;
 	border: none;
-	width: 30px;
-	height: 30px;
+	width: 40px;
+	height: 40px;
 	vertical-align: middle;
-	padding: 7px 2px;
+	padding: 7px 5px;
 }
 
 .offcanvas-btn-right {
@@ -31,9 +38,9 @@ body {
 
 .offcanvas-btn-line {
 	background-color: #fff;
-	height: 1px;
+	height: 2px;
 	display: block;
-	margin-bottom: 6px;
+	margin-bottom: 5px;
 }
 
 .offcanvas-main {
@@ -51,10 +58,21 @@ body {
 .offcanvas-list li {
 	list-style-type: none;
 	padding: 10px;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	border-bottom: 1px solid #666;
 }
 
 .offcanvas-right,
 .offcanvas-left {
 	display: none;
+}
+
+.offcanvas-title {
+	font-size: 30px;
+	margin-bottom: 0 0 20px 0;
+}
+
+.offcanvas-title-small {
+	color: #6f6f6f;
+	font-size: 0.6em;
+	display: inline-block;
 }

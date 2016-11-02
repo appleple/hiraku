@@ -19,7 +19,7 @@
 	var num = 0;
 	var winPos = {x: window.scrollX, y: window.scrollY};
 	$.fn.extend({
-		offcanvas:function(opt){
+		hiraku:function(opt){
 			var opt = $.extend({},defaults,opt);
 			var id = 'js-hiraku-offcanvas-'+num;
 			num++;

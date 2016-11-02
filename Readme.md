@@ -29,7 +29,7 @@ npm install Hiraku
 ```
 
 ```js
-$(".offcanvas-left").offcanvas({
+$(".offcanvas-left").hiraku({
 	btn:"#offcanvas-btn-left",
 	//Button selector to open the offcanvas menu
 	fixedHeader:".js-offcanvas-header",
@@ -48,7 +48,7 @@ $(".offcanvas-left").offcanvas({
 ```
 
 ```js
-$(".offcanvas-right").offcanvas({
+$(".offcanvas-right").hiraku({
 	btn:"#offcanvas-btn-right",
 	fixedHeader:".js-offcanvas-header",
 	direction:"right"

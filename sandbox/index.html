@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class="offcanvas-right">
+<div class="offcanvas-right" tabindex="1">
 	<ul class="offcanvas-list">
 		<li>Right Menu1</li>
 		<li>Right Menu2</li>
@@ -56,7 +56,7 @@
 	</ul>
 </div>
 <header class="offcanvas-header" id="header">
-	Hiraku
+	<span class="offcanvas-header-title">Hiraku</span>
 	<button class="offcanvas-btn offcanvas-btn-left" id="offcanvas-btn-left">
 		<span class="offcanvas-btn-line"></span>
 		<span class="offcanvas-btn-line"></span>
@@ -69,18 +69,8 @@
 	</button>
 </header>
 <div class="offcanvas-main">
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<h1 class="offcanvas-title">Hiraku <span class="offcanvas-title-small">(jQuery plugin for offcanvas menu)</span></h1>
+	<p>With offcanvas menu, you can hide sub menus outside of the viewpoint and show them when activated.</p>
 </div>
 <script
   src="http://code.jquery.com/jquery-2.2.4.min.js"
@@ -89,12 +79,12 @@
 <script src="../src/hiraku.js"></script>
 <script>
 $(function(){
-	$(".offcanvas-right").offcanvas({
+	$(".offcanvas-right").hiraku({
 		btn:"#offcanvas-btn-right",
 		fixedHeader:"#header",
 		direction:"right"
 	});
-	$(".offcanvas-left").offcanvas({
+	$(".offcanvas-left").hiraku({
 		btn:"#offcanvas-btn-left",
 		fixedHeader:"#header",
 		direction:"left"
