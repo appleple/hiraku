@@ -16,7 +16,7 @@ You can easily find source code or plugins for Offcanvas-menu via Google by sear
 npm
 
 ```
-npm install Hiraku
+npm install hiraku
 ```
 
 ## Setup
