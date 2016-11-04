@@ -30,7 +30,6 @@ hiraku.js has following options. Via options, you can control the behavior when 
 And if you want to change the width of the Offcanvas-menu, You may want to change CSS properties instead of changing the JavaScript.
 
 | btn       | Selector of the button to open the Offcanvas-menu |
-|-----------|----------------------------------------------------------------|
 | direction | Offcanvas-menu from "left" or "right" |
 
 ## Demo
@@ -176,9 +175,8 @@ By default, width of the Offcanvas-menu is 70% of the screen size. But you may w
 You can change its width by changing the variable on hiraku.scss. You can also change its transition speed with it.
 
 
-| $side-menu-width | Width of the Offcanvas-menu (default： 70%)
-|-----------|----------------------------------------------------------------|
-| $animation | Transition speeed and type (default: 0.3s ease-in-out)
+| $side-menu-width | Width of the Offcanvas-menu (default： 70%) |
+| $animation | Transition speeed and type (default: 0.3s ease-in-out) |
 
 ## Download
 
