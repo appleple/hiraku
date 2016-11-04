@@ -64,13 +64,13 @@
 	});
 	$(document).on("click touchstart",".js-hiraku-offcanvas",function(e){
 		if($(e.target).hasClass("js-hiraku-offcanvas")){
-	            $(".js-hiraku-offcanvas-body").addClass("js-hiraku-offcanvas-body-moving");
+				$(".js-hiraku-offcanvas-body").addClass("js-hiraku-offcanvas-body-moving");
 				$(".js-hiraku-offcanvas-body").removeClass("js-hiraku-offcanvas-body-right");
 				$(".js-hiraku-offcanvas-body").removeClass("js-hiraku-offcanvas-body-left");
 				$(".js-hiraku-offcanvas-sidebar").removeClass("active");
 			setTimeout(function(){
-	            $(e.target).removeClass("js-hiraku-offcanvas-open");
-	            $(".js-hiraku-offcanvas-body").removeClass("js-hiraku-offcanvas-body-moving");
+				$(e.target).removeClass("js-hiraku-offcanvas-open");
+				$(".js-hiraku-offcanvas-body").removeClass("js-hiraku-offcanvas-body-moving");
 				$("html").css('marginTop','');
 				$("body").css({width:"",height:""});
 				window.scrollTo(winPos.x,winPos.y);
