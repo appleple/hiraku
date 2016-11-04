@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>hiraku by appleple</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">hiraku</h1>
+      <h2 class="project-tagline">jQuery</h2>
+      <a href="https://github.com/appleple/Hiraku" class="btn">View on GitHub</a>
+      <a href="https://github.com/appleple/Hiraku/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/appleple/Hiraku/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="hirakujs---jquery-offcanvas-menu-plugin" class="anchor" href="#hirakujs---jquery-offcanvas-menu-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>hiraku.js - jQuery Offcanvas Menu Plugin</h1>
+
+<p>We made jQuery plugin called hiraku.js so that more people can use offcanvas menu functionality which is used in a CMS We make.</p>
+
+<p>You can easily find source code or plugins for Offcanvas-menu via Google by searching with "offcanvas JavaScript", But We can't find any plugins which meet all features that hiraku.js has. That's Why we made it from the scratch.</p>
+
+<h2>
+<a id="feature" class="anchor" href="#feature" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Feature</h2>
+
+<ul>
+<li>Not affected by the dom structure.</li>
+<li>Enable to open both right and left side menu.</li>
+<li>Main canvas is not scrolled, while scrolling Offcanvas-menu.</li>
+<li>Easy to control the movement</li>
+</ul>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>npm</p>
+
+<pre><code>npm install Hiraku
+</code></pre>
+
+<h2>
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup</h2>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/css<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>./hiraku.css<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>http://code.jquery.com/jquery-2.2.4.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>./hiraku.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+
+<h2>
+<a id="option" class="anchor" href="#option" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option</h2>
+
+<p>hiraku.js has following options. Via options, you can control the behavior when you open the Offcanvas-menu.
+And if you want to change the width of the Offcanvas-menu, You may want to change CSS properties instead of changing the JavaScript.</p>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>btn</td>
+<td>Selector of the button to open the Offcanvas-menu</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>Offcanvas-menu from "left" or "right"</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
+
+<h3>
+<a id="from-right-side" class="anchor" href="#from-right-side" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>From right side</h3>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">button</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>hiraku-open-btn<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>offcanvas-btn-right<span class="pl-pds">"</span></span> <span class="pl-e">data-toggle-offcanvas</span>=<span class="pl-s"><span class="pl-pds">"</span>#js-hiraku-offcanvas-1<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>hiraku-open-btn-line<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>hiraku-open-btn-line<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>hiraku-open-btn-line<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+&lt;/<span class="pl-ent">button</span>&gt;
+&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>offcanvas-right<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">ul</span>&gt;&lt;<span class="pl-ent">li</span>&gt;hogehoge&lt;/<span class="pl-ent">li</span>&gt;&lt;/<span class="pl-ent">ul</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">"</span>.offcanvas-right<span class="pl-pds">"</span></span>).<span class="pl-en">hiraku</span>({
+    btn<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>#offcanvas-btn-right<span class="pl-pds">"</span></span>,
+    fixedHeader<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>#header<span class="pl-pds">"</span></span>,
+    direction<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>right<span class="pl-pds">"</span></span>
+});</pre></div>
+
+<h3>
+<a id="from-left-side" class="anchor" href="#from-left-side" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>From left side</h3>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">button</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>hiraku-open-btn<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>offcanvas-btn-left<span class="pl-pds">"</span></span> <span class="pl-e">data-toggle-offcanvas</span>=<span class="pl-s"><span class="pl-pds">"</span>#js-hiraku-offcanvas-1<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>hiraku-open-btn-line<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>hiraku-open-btn-line<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>hiraku-open-btn-line<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+&lt;/<span class="pl-ent">button</span>&gt;
+&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>offcanvas-left<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">ul</span>&gt;&lt;<span class="pl-ent">li</span>&gt;hogehoge&lt;/<span class="pl-ent">li</span>&gt;&lt;/<span class="pl-ent">ul</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">"</span>.offcanvas-left<span class="pl-pds">"</span></span>).<span class="pl-en">hiraku</span>({
+        btn<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>#offcanvas-btn-left<span class="pl-pds">"</span></span>,
+        fixedHeader<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>#header<span class="pl-pds">"</span></span>,
+        direction<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>left<span class="pl-pds">"</span></span>
+});</pre></div>
+
+<h3>
+<a id="from-both-side" class="anchor" href="#from-both-side" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>From both side</h3>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">button</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>hiraku-open-btn<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>offcanvas-btn-left<span class="pl-pds">"</span></span> <span class="pl-e">data-toggle-offcanvas</span>=<span class="pl-s"><span class="pl-pds">"</span>#js-hiraku-offcanvas-1<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>hiraku-open-btn-line<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>hiraku-open-btn-line<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>hiraku-open-btn-line<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+&lt;/<span class="pl-ent">button</span>&gt;
+&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>offcanvas-left<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">ul</span>&gt;&lt;<span class="pl-ent">li</span>&gt;hogehoge&lt;/<span class="pl-ent">li</span>&gt;&lt;/<span class="pl-ent">ul</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;
+
+&lt;<span class="pl-ent">button</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>hiraku-open-btn<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>offcanvas-btn-right<span class="pl-pds">"</span></span> <span class="pl-e">data-toggle-offcanvas</span>=<span class="pl-s"><span class="pl-pds">"</span>#js-hiraku-offcanvas-1<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>hiraku-open-btn-line<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>hiraku-open-btn-line<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>hiraku-open-btn-line<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+&lt;/<span class="pl-ent">button</span>&gt;
+&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>offcanvas-right<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">ul</span>&gt;&lt;<span class="pl-ent">li</span>&gt;hogehoge&lt;/<span class="pl-ent">li</span>&gt;&lt;/<span class="pl-ent">ul</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">"</span>.offcanvas-left<span class="pl-pds">"</span></span>).<span class="pl-en">hiraku</span>({
+        btn<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>#offcanvas-btn-left<span class="pl-pds">"</span></span>,
+        fixedHeader<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>#header<span class="pl-pds">"</span></span>,
+        direction<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>left<span class="pl-pds">"</span></span>
+});
+
+
+<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">"</span>.offcanvas-right<span class="pl-pds">"</span></span>).<span class="pl-en">hiraku</span>({
+        btn<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>#offcanvas-btn-right<span class="pl-pds">"</span></span>,
+        fixedHeader<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>#header<span class="pl-pds">"</span></span>,
+        direction<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>right<span class="pl-pds">"</span></span>
+});</pre></div>
+
+<h2>
+<a id="css-customize" class="anchor" href="#css-customize" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CSS Customize</h2>
+
+<p>If you don't want to move the main contents, When opening the Offcanvas-menu.</p>
+
+<p>By default, main contents will be pressed out. But if you want to fix main contents, you will overwrite hiraku.css like below</p>
+
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.js-hiraku-offcanvas-body-right</span> <span class="pl-e">.js-hiraku-header-fixed</span> {
+    <span class="pl-c1"><span class="pl-c1">margin-left</span></span>: <span class="pl-c1">-70<span class="pl-k">%</span></span>;
+}
+
+<span class="pl-e">.js-hiraku-offcanvas-body-left</span> <span class="pl-e">.js-hiraku-header-fixed</span> {
+    <span class="pl-c1"><span class="pl-c1">margin-left</span></span>: <span class="pl-c1">70<span class="pl-k">%</span></span>;
+}
+
+<span class="pl-e">.js-hiraku-offcanvas-body-right</span> {
+    <span class="pl-c1"><span class="pl-c1">left</span></span>:<span class="pl-c1">0</span>;
+}
+
+<span class="pl-e">.js-hiraku-offcanvas-body-left</span> {
+    <span class="pl-c1"><span class="pl-c1">left</span></span>:<span class="pl-c1">0</span>;
+}</pre></div>
+
+<h3>
+<a id="specify-the-width-of-the-offcanvas-menu-in-pixels" class="anchor" href="#specify-the-width-of-the-offcanvas-menu-in-pixels" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Specify the width of the Offcanvas-menu in pixels</h3>
+
+<p>By default, width of the Offcanvas-menu is 70% of the screen size. But you may want to change the size of the menu when using tablets. Then you can overwrite hiraku.css like below.</p>
+
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.js-hiraku-offcanvas-body-right</span> <span class="pl-e">.js-hiraku-header-fixed</span> {
+    <span class="pl-c1"><span class="pl-c1">margin-left</span></span>: <span class="pl-c1">-210<span class="pl-k">px</span></span>;
+}
+
+<span class="pl-e">.js-hiraku-offcanvas-body-left</span> <span class="pl-e">.js-hiraku-header-fixed</span> {
+    <span class="pl-c1"><span class="pl-c1">margin-left</span></span>: <span class="pl-c1">210<span class="pl-k">px</span></span>;
+}
+
+<span class="pl-e">.js-hiraku-offcanvas</span> <span class="pl-e">.js-hiraku-offcanvas-sidebar-left</span> {
+    <span class="pl-c1"><span class="pl-c1">margin-left</span></span>:<span class="pl-c1">-210<span class="pl-k">px</span></span>;
+}
+
+<span class="pl-e">.js-hiraku-offcanvas</span> <span class="pl-e">.js-hiraku-offcanvas-sidebar-right</span> {
+    <span class="pl-c1"><span class="pl-c1">margin-right</span></span>:<span class="pl-c1">210<span class="pl-k">px</span></span>;
+}
+
+<span class="pl-e">.js-hiraku-offcanvas</span> <span class="pl-e">.js-hiraku-offcanvas-sidebar</span> {
+    <span class="pl-c1"><span class="pl-c1">width</span></span>:<span class="pl-c1">210<span class="pl-k">px</span></span>;
+}
+
+<span class="pl-e">.js-hiraku-offcanvas-body-left</span> {
+    <span class="pl-c1"><span class="pl-c1">left</span></span>:<span class="pl-c1">210<span class="pl-k">px</span></span>;
+}
+
+<span class="pl-e">.js-hiraku-offcanvas-body-right</span> {
+    <span class="pl-c1"><span class="pl-c1">right</span></span>:<span class="pl-c1">210<span class="pl-k">px</span></span>;
+}</pre></div>
+
+<h3>
+<a id="customize-hirakucss-via-hirakuscss" class="anchor" href="#customize-hirakucss-via-hirakuscss" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Customize hiraku.css via hiraku.scss</h3>
+
+<p>You can change its width by changing the variable on hiraku.scss. You can also change its transition speed with it.</p>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$side-menu-width</td>
+<td>Width of the Offcanvas-menu (default： 70%)</td>
+</tr>
+<tr>
+<td>$animation</td>
+<td>Transition speeed and type (default: 0.3s ease-in-out)</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="download" class="anchor" href="#download" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download</h2>
+
+<p>You can download from here.</p>
+
+<p><a href="http://github.com/appleple/hiraku/archive/master.zip">Download hiraku.js</a></p>
+
+<h2>
+<a id="github" class="anchor" href="#github" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Github</h2>
+
+<p><a href="http://github.com/appleple/hiraku">hiraku.js on Github</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/appleple/Hiraku">hiraku</a> is maintained by <a href="https://github.com/appleple">appleple</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
