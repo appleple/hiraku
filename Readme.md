@@ -21,9 +21,11 @@ npm install Hiraku
 
 ## Setup
 
+```html
 <link rel="stylesheet" type="text/css" href="./hiraku.css">
 <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="./hiraku.js"></script>
+```
 
 ## Option
 hiraku.js has following options. Via options, you can control the behavior when you open the Offcanvas-menu.
