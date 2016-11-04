@@ -111,7 +111,7 @@ $(".offcanvas-right").hiraku({
 ```
 
 
-### CSS Customize
+## CSS Customize
 
 If you don't want to move the main contents, When opening the Offcanvas-menu.
 
@@ -170,7 +170,7 @@ By default, width of the Offcanvas-menu is 70% of the screen size. But you may w
 }
 ```
 
-#### Customize hiraku.css via hiraku.scss
+### Customize hiraku.css via hiraku.scss
 
 You can change its width by changing the variable on hiraku.scss. You can also change its transition speed with it.
 
