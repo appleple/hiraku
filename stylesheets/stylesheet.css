@@ -336,6 +336,33 @@ a:hover {
 	color: #819198;
 }
 
+.product-demo {
+	max-width: 300px;
+	margin: 40px auto;
+	position: relative;
+}
+
+.product-demo-inner {
+	padding-bottom: 200%;
+}
+
+.product-demo-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+}
+
+.product-demo-ani {
+	position: absolute;
+	top: 15%;
+	left: 7%;
+	width: 86%;
+	height: auto;
+	border: 1px solid #cccccc;
+}
+
 @media screen and (min-width: 64em) {
 	.site-footer {
 		font-size: 1rem;
