@@ -35,7 +35,8 @@
 <div class="product-demo">
 	<div class="product-demo-inner">
 		<img src="./images/bg_hiraku.png" class="product-demo-bg">
-		<img src="./images/ani_hiraku_first.png" class="product-demo-ani js-ani">
+		<img src="./images/ani_hiraku_first.png" class="product-demo-ani js-ani" style="display:none;">
+		<video src="./images/ani_hiraku_trim.mov" class="product-demo-ani js-movie" autoplay loop></video>
 	</div>
 </div>
 
@@ -272,11 +273,16 @@ And if you want to change the width of the Offcanvas-menu, You may want to chang
   </body>
   <script>
   	(function(){
-  		var img = new Image();
-  		img.src = "images/ani_hiraku.gif";
-  		var replaceImg = document.querySelector(".js-ani");
-  		img.onload = function(){
-  			replaceImg.src = "images/ani_hiraku.gif";
+  		if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+			var movie = document.querySelector(".js-movie");
+			movie.style.display = "none";
+	  		var img = new Image();
+	  		img.src = "images/ani_hiraku.gif";
+	  		var replaceImg = document.querySelector(".js-ani");
+	  		replaceImg.style.display = "block";
+	  		img.onload = function(){
+	  			replaceImg.src = "images/ani_hiraku.gif";
+	  		}
   		}
   	})();
   </script>
