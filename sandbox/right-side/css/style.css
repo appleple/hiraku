@@ -1,0 +1,39 @@
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+
+body {
+  padding-top: 70px;
+}
+
+footer {
+  padding: 30px 0;
+}
+
+.list-group {
+  margin-bottom: 0;
+}
+
+.list-group-item:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (min-width: 768px) {
+  .js-hiraku-offcanvas {
+    display: block;
+    position: static;
+    background: none;
+  }
+
+  .js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar {
+    position: static;
+    margin-right: 0;
+    width:auto;
+  }
+}

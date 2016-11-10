@@ -1,0 +1,75 @@
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+
+body {
+  padding-top: 70px;
+}
+
+footer {
+  padding: 30px 0;
+}
+
+.list-group {
+  margin-bottom: 0;
+}
+
+.list-group-item:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.navbar-toggle {
+  float: left;
+  margin-left: 10px;
+}
+
+.js-hiraku-offcanvas-body-right .js-hiraku-header-fixed {
+  margin-left: -210px;
+}
+ 
+.js-hiraku-offcanvas-body-left .js-hiraku-header-fixed {
+  margin-left: 210px;
+}
+ 
+.js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar-left {
+  margin-left:-210px;
+}
+ 
+.js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar-right {
+  margin-right:210px;
+}
+ 
+.js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar {
+  width:210px;
+}
+ 
+.js-hiraku-offcanvas-body-left {
+  left:210px;
+}
+ 
+.js-hiraku-offcanvas-body-right {
+  right:210px;
+}
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (min-width: 768px) {
+  .js-hiraku-offcanvas {
+    display: block;
+    position: static;
+    background: none;
+  }
+
+  .js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar {
+    position: static;
+    margin-left: 0;
+    width:auto;
+  }
+  
+}
+
+
