@@ -4,18 +4,6 @@
  *
  */
 
-/*
- * Hiraku Ver.1.0.0 (https://www.appleple.com)
- * Copyright appleple | MIT License
- *
- */
-
-/*
- * Hiraku Ver.1.0.0 (https://www.appleple.com)
- * Copyright appleple | MIT License
- *
- */
-
 .js-hiraku-offcanvas-active {
 	position: fixed;
 	z-index: 100001;
@@ -125,12 +113,6 @@
 .js-hiraku-offcanvas-body-left .js-hiraku-header-fixed {
 	margin-left: 70%;
 }
-
-/*
- * Hiraku Ver.1.0.0 (https://www.appleple.com)
- * Copyright appleple | MIT License
- *
- */
 
 .hiraku-open-btn {
 	width: 35px;
