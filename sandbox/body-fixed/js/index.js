@@ -1,4 +1,5 @@
 $(".js-offcanvas").hiraku({
   btn: ".js-offcanvas-btn",
-  direction: "left"
+  direction: "left",
+  breakpoint: 767
 });

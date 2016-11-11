@@ -3,7 +3,7 @@
  * Copyright appleple | MIT License
  *
  */
-.js-hiraku-offcanvas {
+.js-hiraku-offcanvas-active {
 	display: none;
 	position: fixed;
 	top: 0;
@@ -44,7 +44,7 @@
 	position: fixed;
 }
 
-.js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar {
+.js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar {
 	display: block;
 	width: $side-menu-width;
 	z-index: 10002;
@@ -58,26 +58,30 @@
 	box-sizing: border-box;
 }
 
-.js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar-right {
+.js-hiraku-offcanvas:focus {
+	background-color: $offcanvas-overlay-focused;
+}
+
+.js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar-right {
 	right: 0;
 	left: auto;
 	margin-right: (- $side-menu-width);
 	transition: margin-right $animation;
 }
 
-.js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar-left {
+.js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar-left {
 	left: 0;
 	right: auto;
 	margin-left: (- $side-menu-width);
 	transition: margin-left $animation;
 }
 
-.js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar-right.active {
+.js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar-right.active {
 	margin-right: 0px;
 	transition: margin-right $animation;
 }
 
-.js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar-left.active {
+.js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar-left.active {
 	margin-left: 0px;
 	transition: margin-left $animation;
 }

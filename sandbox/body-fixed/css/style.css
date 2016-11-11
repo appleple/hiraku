@@ -4,25 +4,29 @@
  */
 
 body {
-  padding-top: 70px;
+	padding-top: 70px;
 }
 
 footer {
-  padding: 30px 0;
+	padding: 30px 0;
 }
 
 .list-group {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 .list-group-item:first-child {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
 }
 
 .navbar-toggle {
-  float: left;
-  margin-left: 10px;
+	float: left;
+	margin-left: 10px;
+}
+
+.list-group-item:focus {
+	background-color: #eaf2f9;
 }
 
 /*
@@ -30,31 +34,31 @@ footer {
  * --------------------------------------------------
  */
 @media screen and (min-width: 768px) {
-  .js-hiraku-offcanvas {
-    display: block;
-    position: static;
-    background: none;
-  }
+	.js-hiraku-offcanvas-active {
+		display: block;
+		position: static;
+		background: none;
+	}
 
-  .js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar {
-    position: static;
-    margin-left: 0;
-    width:auto;
-  }
+	.js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar {
+		position: static;
+		margin-left: 0;
+		width: auto;
+	}
 }
 
 .js-hiraku-offcanvas-body-right .js-hiraku-header-fixed {
-  margin-left: -70%;
+	margin-left: -70%;
 }
- 
+
 .js-hiraku-offcanvas-body-left .js-hiraku-header-fixed {
-  margin-left: 70%;
+	margin-left: 70%;
 }
- 
+
 .js-hiraku-offcanvas-body-right {
-  left:0;
+	left: 0;
 }
- 
+
 .js-hiraku-offcanvas-body-left {
-  left:0;
+	left: 0;
 }

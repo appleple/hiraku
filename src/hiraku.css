@@ -16,7 +16,7 @@
  *
  */
 
-.js-hiraku-offcanvas {
+.js-hiraku-offcanvas-active {
 	position: fixed;
 	z-index: 100001;
 	top: 0;
@@ -58,7 +58,7 @@
 	left: 0;
 }
 
-.js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar {
+.js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar {
 	position: fixed;
 	z-index: 10002;
 	top: 0;
@@ -72,7 +72,11 @@
 	-webkit-overflow-scrolling: touch;
 }
 
-.js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar-right {
+.js-hiraku-offcanvas:focus {
+	background-color: rgba(0, 0, 0, .3);
+}
+
+.js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar-right {
 	right: 0;
 	left: auto;
 	margin-right: -70%;
@@ -80,7 +84,7 @@
 	transition: margin-right .3s ease-in-out;
 }
 
-.js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar-left {
+.js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar-left {
 	right: auto;
 	left: 0;
 	margin-left: -70%;
@@ -88,13 +92,13 @@
 	transition: margin-left .3s ease-in-out;
 }
 
-.js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar-right.active {
+.js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar-right.active {
 	margin-right: 0;
 	-webkit-transition: margin-right .3s ease-in-out;
 	transition: margin-right .3s ease-in-out;
 }
 
-.js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar-left.active {
+.js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar-left.active {
 	margin-left: 0;
 	-webkit-transition: margin-left .3s ease-in-out;
 	transition: margin-left .3s ease-in-out;
