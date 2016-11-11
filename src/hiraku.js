@@ -77,8 +77,6 @@
 			if ((e.which === 9 && !e.shiftKey)) {
 				e.preventDefault();
 				$first.focus();
-			}else if (e.which == 13) {
-				$target.click();
 			}
 		});
 		$last.off("click.hiraku-offcanvas").on("click.hiraku-offcanvas",function(){
