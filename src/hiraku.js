@@ -81,6 +81,9 @@
 				$target.click();
 			}
 		});
+		$last.off("click.hiraku-offcanvas").on("click.hiraku-offcanvas",function(){
+			$target.click();
+		});
 		$this.addClass("js-hiraku-offcanvas-btn-active");
 		$this.attr("aria-expanded",true);
 		winPos.x = window.scrollX;
