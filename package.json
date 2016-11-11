@@ -15,5 +15,8 @@
     "gulp-plumber": "*",
     "gulp-rename": "*",
     "gulp-sass": "*"
+  },
+  "dependencies": {
+    "gulp-uglify": "^2.0.0"
   }
 }

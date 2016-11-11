@@ -8,6 +8,7 @@ require('es6-promise').polyfill();
 var cssComb = require('gulp-csscomb');
 var cmq = require('gulp-merge-media-queries');
 var cleanCss = require('gulp-clean-css');
+var uglify = require('gulp-uglify');
 gulp.task('sass',function(){
 	gulp.src(['scss/**/*.scss'])
 		.pipe(plumber({
@@ -28,6 +29,24 @@ gulp.task('sass',function(){
 		.pipe(gulp.dest('src/'))
 });
 
+gulp.task('js',function(){
+    gulp.src(['src/hiraku.js'])
+        .pipe(plumber({
+            handleError: function (err) {
+                console.log(err);
+                this.emit('end');
+            }
+        }))
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(uglify())
+        .pipe(gulp.dest('src'))
+});
+
+
+
 gulp.task('default',function(){
 	gulp.watch('scss/**/*.scss',['sass']);
+	gulp.watch('src/hiraku.js',['js']);
 });
