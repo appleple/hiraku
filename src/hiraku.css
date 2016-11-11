@@ -143,12 +143,38 @@
 
 .hiraku-open-btn-line {
 	display: block;
-	height: 2px;
-	margin-bottom: 5px;
-	background-color: #ccc;
+	height: 14px;
+	padding-top: 4px;
+	-webkit-transition: .2s all;
+	transition: .2s all;
+	border-top: 2px solid #fff;
+	border-radius: 1px;
 }
 
-.hiraku-open-btn-line:last-child {
-	margin-bottom: 0;
+.hiraku-open-btn-line:before,
+.hiraku-open-btn-line:after {
+	display: block;
+	width: 18px;
+	height: 2px;
+	margin-bottom: 4px;
+	content: '';
+	-webkit-transition: .2s all;
+	transition: .2s all;
+	border-radius: 1px;
+	background-color: #fff;
+}
+
+[aria-expanded='true'] .hiraku-open-btn-line {
+	border-color: transparent;
+}
+
+[aria-expanded='true'] .hiraku-open-btn-line:before {
+	-webkit-transform: translateY(0) rotate(-45deg);
+	transform: translateY(0) rotate(-45deg);
+}
+
+[aria-expanded='true'] .hiraku-open-btn-line:after {
+	-webkit-transform: translateY(-6px) rotate(-135deg);
+	transform: translateY(-6px) rotate(-135deg);
 }
 

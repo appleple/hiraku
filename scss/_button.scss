@@ -13,12 +13,50 @@
 }
 
 .hiraku-open-btn-line {
-	background-color: #ccc;
-	height: 2px;
+	border-top: 2px solid #fff;
+	padding-top: 4px;
+	height: 14px;
+	border-radius: 1px;
 	display: block;
-	margin-bottom: 5px;
+	-webkit-transition: .2s all;
+	-moz-transition: .2s all;
+	-ms-transition: .2s all;
+	-o-transition: .2s all;
+	transition: .2s all;
 }
 
-.hiraku-open-btn-line:last-child {
-	margin-bottom: 0;
+.hiraku-open-btn-line:before,
+.hiraku-open-btn-line:after {
+	content: "";
+	background-color: #fff;
+	height: 2px;
+	display: block;
+	width: 18px;
+	border-radius: 1px;
+	margin-bottom: 4px;
+	-webkit-transition: .2s all;
+	-moz-transition: .2s all;
+	-ms-transition: .2s all;
+	-o-transition: .2s all;
+	transition: .2s all;
+}
+
+[aria-expanded="true"] .hiraku-open-btn-line {
+	border-color: transparent;
+}
+
+[aria-expanded="true"] .hiraku-open-btn-line:before {
+	-webkit-transform: translateY(0) rotate(-45deg);
+	-moz-transform: translateY(0) rotate(-45deg);
+	-ms-transform: translateY(0) rotate(-45deg);
+	-o-transform: translateY(0) rotate(-45deg);
+	transform: translateY(0) rotate(-45deg);
+}
+
+[aria-expanded="true"] .hiraku-open-btn-line:after {
+	-webkit-transform: translateY(-6px) rotate(-135deg);
+	-moz-transform: translateY(-6px) rotate(-135deg);
+	-ms-transform: translateY(-6px) rotate(-135deg);
+	-o-transform: translateY(-6px) rotate(-135deg);
+	transform: translateY(-6px) rotate(-135deg);
 }
