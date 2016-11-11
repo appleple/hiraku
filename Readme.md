@@ -1,6 +1,6 @@
 # hiraku.js - jQuery Offcanvas Menu Plugin
 
-We made jQuery plugin called hiraku.js so that more people can use offcanvas menu functionality which is used in a CMS we make.
+We made jQuery plugin called hiraku.js so that more people can use Offcanvas-menu functionality which is used in a CMS we make.
 
 You can easily find source code or plugins for Offcanvas-menu via Google by searching with "offcanvas JavaScript", But We can't find any plugins which meet all features that hiraku.js has. That's Why we made it from the scratch.
 
@@ -10,7 +10,7 @@ You can easily find source code or plugins for Offcanvas-menu via Google by sear
 - Enable to open both right and left side menu.
 - Main canvas is not scrolled, while scrolling Offcanvas-menu.
 - Easy to control the movement
-- accessible for keyboard navigation and screen readers.
+- Accessible for keyboard navigation and screen readers.
 
 ## Installation
 
