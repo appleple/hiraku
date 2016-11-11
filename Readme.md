@@ -1,15 +1,16 @@
 # hiraku.js - jQuery Offcanvas Menu Plugin
 
-We made jQuery plugin called hiraku.js so that more people can use offcanvas menu functionality which is used in a CMS We make.
+We made jQuery plugin called hiraku.js so that more people can use offcanvas menu functionality which is used in a CMS we make.
 
 You can easily find source code or plugins for Offcanvas-menu via Google by searching with "offcanvas JavaScript", But We can't find any plugins which meet all features that hiraku.js has. That's Why we made it from the scratch.
 
 ## Feature
 
-- Not affected by the dom structure.
+- Not affected by the DOM structure.
 - Enable to open both right and left side menu.
 - Main canvas is not scrolled, while scrolling Offcanvas-menu.
 - Easy to control the movement
+- accessible for keyboard navigation and screen readers.
 
 ## Installation
 
@@ -34,6 +35,7 @@ And if you want to change the width of the Offcanvas-menu, You may want to chang
 | Variable | Description |
 |-----------|----------------------------------------------------------------|
 | btn       | Selector of the button to open the Offcanvas-menu |
+| fixedHeader | Selector of the fixed elements |
 | direction | Offcanvas-menu from "left" or "right" |
 
 ## Demo
@@ -66,15 +68,15 @@ $(".offcanvas-right").hiraku({
 	<span class="hiraku-open-btn-line"></span>
 </button>
 <div class="offcanvas-left">
-		<ul><li>hogehoge</li></ul>
+	<ul><li>hogehoge</li></ul>
 </div>
 ```
 
 ```js
 $(".offcanvas-left").hiraku({
-		btn:"#offcanvas-btn-left",
-		fixedHeader:"#header",
-		direction:"left"
+	btn:"#offcanvas-btn-left",
+	fixedHeader:"#header",
+	direction:"left"
 });
 ```
 ### From both side
@@ -86,7 +88,7 @@ $(".offcanvas-left").hiraku({
 	<span class="hiraku-open-btn-line"></span>
 </button>
 <div class="offcanvas-left">
-		<ul><li>hogehoge</li></ul>
+	<ul><li>hogehoge</li></ul>
 </div>
 
 <button class="hiraku-open-btn" id="offcanvas-btn-right" data-toggle-offcanvas="#js-hiraku-offcanvas-1">
@@ -95,22 +97,22 @@ $(".offcanvas-left").hiraku({
 	<span class="hiraku-open-btn-line"></span>
 </button>
 <div class="offcanvas-right">
-		<ul><li>hogehoge</li></ul>
+	<ul><li>hogehoge</li></ul>
 </div>
 ```
 
 ```js
 $(".offcanvas-left").hiraku({
-		btn:"#offcanvas-btn-left",
-		fixedHeader:"#header",
-		direction:"left"
+	btn:"#offcanvas-btn-left",
+	fixedHeader:"#header",
+	direction:"left"
 });
 
 
 $(".offcanvas-right").hiraku({
-		btn:"#offcanvas-btn-right",
-		fixedHeader:"#header",
-		direction:"right"
+	btn:"#offcanvas-btn-right",
+	fixedHeader:"#header",
+	direction:"right"
 });
 ```
 
