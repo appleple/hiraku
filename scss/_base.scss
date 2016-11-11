@@ -101,3 +101,14 @@
 .js-hiraku-offcanvas-body-left .js-hiraku-header-fixed {
 	margin-left: $side-menu-width;
 }
+
+.js-hiraku-offcanvas-close-btn {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+}

@@ -60,34 +60,25 @@
 	});
 	$(document).on("click",".js-hiraku-offcanvas-btn",function(e){
 		var $target = $($(this).data("toggle-offcanvas"));
+		var $close = $("<button type='button'>Close Offcanvas-Menu Button</button>");
+		$close.attr("aria-label","Close");
+		$close.addClass("js-hiraku-offcanvas-close-btn");
+		$target.append($close);
 		var $first = $target.find(focusableElements).first();
 		var $last = $target.find(focusableElements).last();
 		var $this = $(this);
-		if($this.attr("aria-label") === "Close"){
-			return;
-		}
-		$this.attr("aria-label","Close");
 		$first.off("keydown.hiraku-offcanvas").on("keydown.hiraku-offcanvas",function(e){
 			if ((e.which === 9 && e.shiftKey)) {
 				e.preventDefault();
-				$this.focus();
+				$last.focus();
 			}
 		});
 		$last.off("keydown.hiraku-offcanvas").on("keydown.hiraku-offcanvas",function(e){
 			if ((e.which === 9 && !e.shiftKey)) {
 				e.preventDefault();
-				$this.focus();
-			}
-		});
-		$this.off("keydown.hiraku-offcanvas").on("keydown.hiraku-offcanvas",function(e){
-			if ((e.which === 9 && e.shiftKey)) {
-				$last.focus();
-			}else if((e.which === 9 && !e.shiftKey)){
 				$first.focus();
-			}else{
-				if($this.attr("aria-label") === "Close"){
-					$target.click();
-				}
+			}else if (!e.shiftKey) {
+				$target.click();
 			}
 		});
 		$this.addClass("js-hiraku-offcanvas-btn-active");
@@ -126,8 +117,8 @@
 				var $btn = $(".js-hiraku-offcanvas-btn-active");
 				$btn.removeClass("js-hiraku-offcanvas-btn-active");
 				$btn.attr("aria-expanded",false);
-				$btn.attr("aria-label","Menu");
 				$btn.focus();
+				$(e.target).find(".js-hiraku-offcanvas-close-btn").remove();
 			},300);
 		}
 	});

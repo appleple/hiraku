@@ -114,6 +114,17 @@
 	margin-left: 70%;
 }
 
+.js-hiraku-offcanvas-close-btn {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+}
+
 .hiraku-open-btn {
 	width: 35px;
 	padding: 6px;
