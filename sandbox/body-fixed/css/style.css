@@ -34,13 +34,13 @@ footer {
  * --------------------------------------------------
  */
 @media screen and (min-width: 768px) {
-	.js-hiraku-offcanvas-active {
+	.js-hiraku-offcanvas {
 		display: block;
 		position: static;
 		background: none;
 	}
 
-	.js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar {
+	.js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar {
 		position: static;
 		margin-left: 0;
 		width: auto;
