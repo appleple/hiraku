@@ -18,7 +18,9 @@ gulp.task('sass',function(){
 			}
 		}))
 		.pipe(sass())
-		.pipe(autoPrefixer())
+		.pipe(autoPrefixer({
+			browsers: ['last 2 versions', 'ie 9']
+		}))
 		.pipe(cssComb())
 		.pipe(cmq({log:true}))
 		.pipe(gulp.dest('src/'))
