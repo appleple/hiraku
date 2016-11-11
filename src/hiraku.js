@@ -77,7 +77,7 @@
 			if ((e.which === 9 && !e.shiftKey)) {
 				e.preventDefault();
 				$first.focus();
-			}else if (!e.shiftKey) {
+			}else if (!(e.which === 9 && e.shiftKey)) {
 				$target.click();
 			}
 		});
