@@ -24,7 +24,6 @@
 		hiraku:function(opt){
 			var opt = $.extend({},defaults,opt);
 			var id = 'js-hiraku-offcanvas-'+num;
-			num++;
 			var $this = $(this);
 			$this.addClass("js-hiraku-offcanvas-sidebar");
 			$this.data("scroll",scroll);
@@ -32,10 +31,9 @@
 				$this.wrap("<div class='js-hiraku-offcanvas'/>");
 			}
 			$this.attr("role","navigation");
-			$this.attr("aria-hidden","true");
-			$this.attr("aria-labelledby","hiraku-offcanvas-btn-"+num);
-			$parent = $this.parent(".js-hiraku-offcanvas");
-			$parent.attr("tabindex",1);
+			var $parent = $this.parent(".js-hiraku-offcanvas");
+			$parent.attr("aria-hidden","true");
+			$parent.attr("aria-labelledby","hiraku-offcanvas-btn-"+num);
 			$parent.attr("id",id);
 			$parent.data("breakpoint",opt.breakpoint);
 			$parent.attr("aria-label","close");
@@ -56,6 +54,7 @@
 			if(opt.fixedHeader){
 				$(opt.fixedHeader).addClass("js-hiraku-header-fixed");
 			}
+			num++;
 			$(window).resize();
 		}
 	});
@@ -64,28 +63,31 @@
 		var $first = $target.find(focusableElements).first();
 		var $last = $target.find(focusableElements).last();
 		var $this = $(this);
+		if($this.attr("aria-label") === "Close"){
+			return;
+		}
+		$this.attr("aria-label","Close");
 		$first.off("keydown.hiraku-offcanvas").on("keydown.hiraku-offcanvas",function(e){
 			if ((e.which === 9 && e.shiftKey)) {
 				e.preventDefault();
-				$target.focus();
+				$this.focus();
 			}
 		});
 		$last.off("keydown.hiraku-offcanvas").on("keydown.hiraku-offcanvas",function(e){
 			if ((e.which === 9 && !e.shiftKey)) {
 				e.preventDefault();
-				$target.focus();
+				$this.focus();
 			}
 		});
-		$target.off("keydown.hiraku-offcanvas").on("keydown.hiraku-offcanvas",function(e){
-			if(!$(e.target).hasClass("js-hiraku-offcanvas")){
-				return;
-			}
+		$this.off("keydown.hiraku-offcanvas").on("keydown.hiraku-offcanvas",function(e){
 			if ((e.which === 9 && e.shiftKey)) {
 				$last.focus();
 			}else if((e.which === 9 && !e.shiftKey)){
 				$first.focus();
 			}else{
-				$(e.target).click();
+				if($this.attr("aria-label") === "Close"){
+					$target.click();
+				}
 			}
 		});
 		$this.addClass("js-hiraku-offcanvas-btn-active");
@@ -94,7 +96,7 @@
 		winPos.y = window.scrollY;
 		var $body = $("body").css({"width": window.innerWidth, "height": $(window).height()});
 		var $sidebar = $target.find(".js-hiraku-offcanvas-sidebar");
-		$sidebar.attr("aria-hidden",false);
+		$target.attr("aria-hidden",false);
 		$target.addClass("js-hiraku-offcanvas-open");
 		setTimeout(function(){
 			$("html").css('marginTop',-1 * window.scrollY);
@@ -116,7 +118,7 @@
 			$(".js-hiraku-offcanvas-sidebar").removeClass("active");
 			setTimeout(function(){
 				$(e.target).removeClass("js-hiraku-offcanvas-open");
-				$(e.target).children(".js-hiraku-offcanvas-sidebar").attr("aria-hidden",true);
+				$(e.target).attr("aria-hidden",true);
 				$(".js-hiraku-offcanvas-body").removeClass("js-hiraku-offcanvas-body-moving");
 				$("html").css('marginTop','');
 				$("body").css({width:"",height:""});
@@ -124,6 +126,7 @@
 				var $btn = $(".js-hiraku-offcanvas-btn-active");
 				$btn.removeClass("js-hiraku-offcanvas-btn-active");
 				$btn.attr("aria-expanded",false);
+				$btn.attr("aria-label","Menu");
 				$btn.focus();
 			},300);
 		}
@@ -137,10 +140,10 @@
 			}
 			if (breakpoint === -1 || breakpoint >= window.innerWidth) {
 				$this.addClass("js-hiraku-offcanvas-active");
-				$this.children(".js-hiraku-offcanvas-sidebar").attr("aria-hidden",true);
+				$this.attr("aria-hidden",true);
 			} else {
 				$this.removeClass("js-hiraku-offcanvas-active");
-				$this.children(".js-hiraku-offcanvas-sidebar").attr("aria-hidden",false);
+				$this.attr("aria-hidden",false);
 			}
 		});
 	});
