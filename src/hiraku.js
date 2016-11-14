@@ -20,6 +20,23 @@
     var num = 0;
     var winPos = { x: window.scrollX, y: window.scrollY };
     var focusableElements = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
+    var animationFrameId;
+    var resizeHandler = function() {
+        $(".js-hiraku-offcanvas").each(function() {
+            var $this = $(this);
+            var breakpoint = $(this).data("breakpoint");
+            if ($this.hasClass("js-hiraku-offcanvas-open")) {
+                return;
+            }
+            if (breakpoint === -1 || breakpoint >= window.innerWidth) {
+                $this.addClass("js-hiraku-offcanvas-active");
+                $this.attr("aria-hidden", true);
+            } else {
+                $this.removeClass("js-hiraku-offcanvas-active");
+                $this.attr("aria-hidden", false);
+            }
+        });
+    };
     $.fn.extend({
         hiraku: function(opt) {
             var opt = $.extend({}, defaults, opt);
@@ -57,18 +74,20 @@
                 $fixed.addClass("js-hiraku-header-fixed");
             }
             num++;
-            $(window).resize();
+            resizeHandler();
         }
     });
     $(document).on("click", ".js-hiraku-offcanvas-btn", function(e) {
         var $target = $($(this).data("toggle-offcanvas"));
         var $close = $("<button type='button'>Close Offcanvas-Menu Button</button>");
-        $close.attr("aria-label", "Close");
-        $close.addClass("js-hiraku-offcanvas-close-btn");
-        $target.append($close);
         var $first = $target.find(focusableElements).first();
         var $last = $target.find(focusableElements).last();
         var $this = $(this);
+        var $body = $("body").css({ "width": window.innerWidth, "height": $(window).height() });
+        var $sidebar = $target.find(".js-hiraku-offcanvas-sidebar");
+        $close.attr("aria-label", "Close");
+        $close.addClass("js-hiraku-offcanvas-close-btn");
+        $target.append($close);
         $first.off("keydown.hiraku-offcanvas").on("keydown.hiraku-offcanvas", function(e) {
             if ((e.which === 9 && e.shiftKey)) {
                 e.preventDefault();
@@ -88,8 +107,6 @@
         $this.attr("aria-expanded", true);
         winPos.x = window.scrollX;
         winPos.y = window.scrollY;
-        var $body = $("body").css({ "width": window.innerWidth, "height": $(window).height() });
-        var $sidebar = $target.find(".js-hiraku-offcanvas-sidebar");
         $target.attr("aria-hidden", false);
         $target.addClass("js-hiraku-offcanvas-open");
         setTimeout(function() {
@@ -125,23 +142,6 @@
             }, 300);
         }
     });
-    var animationFrameId;
-    var resizeHandler = function() {
-        $(".js-hiraku-offcanvas").each(function() {
-            var $this = $(this);
-            var breakpoint = $(this).data("breakpoint");
-            if ($this.hasClass("js-hiraku-offcanvas-open")) {
-                return;
-            }
-            if (breakpoint === -1 || breakpoint >= window.innerWidth) {
-                $this.addClass("js-hiraku-offcanvas-active");
-                $this.attr("aria-hidden", true);
-            } else {
-                $this.removeClass("js-hiraku-offcanvas-active");
-                $this.attr("aria-hidden", false);
-            }
-        });
-    };
     $(window).resize(function() {
         if ("requestAnimationFrame" in window) {
             cancelAnimationFrame(animationFrameId);
