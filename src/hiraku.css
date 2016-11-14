@@ -1,5 +1,5 @@
 /*
- * Hiraku Ver.1.0.0 (https://www.appleple.com)
+ * Hiraku Ver.1.0.1 (https://www.appleple.com)
  * Copyright appleple | MIT License
  *
  */
@@ -25,7 +25,6 @@
 	z-index: 0;
 	left: 0;
 	width: 100%;
-	-webkit-transition: left .3s ease-in-out;
 	transition: left .3s ease-in-out;
 }
 
@@ -68,7 +67,6 @@
 	right: 0;
 	left: auto;
 	margin-right: -70%;
-	-webkit-transition: margin-right .3s ease-in-out;
 	transition: margin-right .3s ease-in-out;
 }
 
@@ -76,19 +74,16 @@
 	right: auto;
 	left: 0;
 	margin-left: -70%;
-	-webkit-transition: margin-left .3s ease-in-out;
 	transition: margin-left .3s ease-in-out;
 }
 
 .js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar-right.active {
 	margin-right: 0;
-	-webkit-transition: margin-right .3s ease-in-out;
 	transition: margin-right .3s ease-in-out;
 }
 
 .js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar-left.active {
 	margin-left: 0;
-	-webkit-transition: margin-left .3s ease-in-out;
 	transition: margin-left .3s ease-in-out;
 }
 
@@ -97,7 +92,6 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	-webkit-transition: margin-left .3s ease-in-out;
 	transition: margin-left .3s ease-in-out;
 }
 
@@ -138,7 +132,6 @@
 	display: block;
 	height: 14px;
 	padding-top: 4px;
-	-webkit-transition: .2s all;
 	transition: .2s all;
 	border-top: 2px solid #fff;
 	border-radius: 1px;
@@ -151,7 +144,6 @@
 	height: 2px;
 	margin-bottom: 4px;
 	content: '';
-	-webkit-transition: .2s all;
 	transition: .2s all;
 	border-radius: 1px;
 	background-color: #fff;
@@ -162,12 +154,12 @@
 }
 
 [aria-expanded='true'] .hiraku-open-btn-line:before {
-	-webkit-transform: translateY(0) rotate(-45deg);
+	-ms-transform: translateY(0) rotate(-45deg);
 	transform: translateY(0) rotate(-45deg);
 }
 
 [aria-expanded='true'] .hiraku-open-btn-line:after {
-	-webkit-transform: translateY(-6px) rotate(-135deg);
+	-ms-transform: translateY(-6px) rotate(-135deg);
 	transform: translateY(-6px) rotate(-135deg);
 }
 
