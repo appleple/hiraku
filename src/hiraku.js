@@ -83,7 +83,7 @@
         var $first = $target.find(focusableElements).first();
         var $last = $target.find(focusableElements).last();
         var $this = $(this);
-        var $body = $("body").css({ "width": window.innerWidth, "height": $(window).height() });
+        var $body = $("body").css({ "width": $(window).width(), "height": $(window).height() });
         var $sidebar = $target.find(".js-hiraku-offcanvas-sidebar");
         $close.attr("aria-label", "Close");
         $close.addClass("js-hiraku-offcanvas-close-btn");
