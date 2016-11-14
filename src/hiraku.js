@@ -25,6 +25,8 @@
             var opt = $.extend({}, defaults, opt);
             var id = 'js-hiraku-offcanvas-' + num;
             var $this = $(this);
+            var $btn = $(opt.btn);
+            var $fixed = $(opt.fixedHeader);
             $this.addClass("js-hiraku-offcanvas-sidebar");
             $this.data("scroll", scroll);
             if ($this.parent(".js-hiraku-offcanvas").length === 0) {
@@ -44,15 +46,15 @@
                 $this.addClass("js-hiraku-offcanvas-sidebar-left");
             }
             if (opt.btn) {
-                $(opt.btn).addClass("js-hiraku-offcanvas-btn");
-                $(opt.btn).attr("data-toggle-offcanvas", '#' + id);
-                $(opt.btn).attr("aria-expanded", false);
-                $(opt.btn).attr("aria-label", "Menu");
-                $(opt.btn).attr("aria-controls", "menu");
-                $(opt.btn).attr("id", "hiraku-offcanvas-btn-" + num);
+                $btn.addClass("js-hiraku-offcanvas-btn");
+                $btn.attr("data-toggle-offcanvas", '#' + id);
+                $btn.attr("aria-expanded", false);
+                $btn.attr("aria-label", "Menu");
+                $btn.attr("aria-controls", "menu");
+                $btn.attr("id", "hiraku-offcanvas-btn-" + num);
             }
             if (opt.fixedHeader) {
-                $(opt.fixedHeader).addClass("js-hiraku-header-fixed");
+                $fixed.addClass("js-hiraku-header-fixed");
             }
             num++;
             $(window).resize();
