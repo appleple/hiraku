@@ -125,7 +125,8 @@
             }, 300);
         }
     });
-    $(window).resize(function() {
+    var animationFrameId;
+    var resizeHandler = function() {
         $(".js-hiraku-offcanvas").each(function() {
             var $this = $(this);
             var breakpoint = $(this).data("breakpoint");
@@ -140,5 +141,13 @@
                 $this.attr("aria-hidden", false);
             }
         });
+    };
+    $(window).resize(function() {
+        if ("requestAnimationFrame" in window) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = requestAnimationFrame(resizeHandler);
+        } else {
+            resizeHandler();
+        }
     });
 }));
