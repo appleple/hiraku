@@ -17,7 +17,7 @@ You can easily find source code or plugins for Offcanvas-menu via Google by sear
 npm
 
 ```
-npm install hiraku
+$ npm install hiraku
 ```
 
 ## Setup
@@ -48,7 +48,7 @@ And if you want to change the width of the Offcanvas-menu, You may want to chang
 	<span class="hiraku-open-btn-line"></span>
 </button>
 <div class="offcanvas-right">
-		<ul><li>hogehoge</li></ul>
+	<ul><li>hogehoge</li></ul>
 </div>
 ```
 

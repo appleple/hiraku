@@ -1,22 +1,24 @@
 {
-  "name": "hiraku",
-  "version": "1.0.1",
-  "description": "Drawer Menu jQuery Plugin",
-  "author": "appleple",
-  "url": "www.appleple.com",
-  "license": "MIT License",
-  "devDependencies": {
-    "es6-promise": "*",
-    "gulp": "*",
-    "gulp-autoprefixer": "*",
-    "gulp-clean-css": "*",
-    "gulp-csscomb": "*",
-    "gulp-merge-media-queries": "*",
-    "gulp-plumber": "*",
-    "gulp-rename": "*",
-    "gulp-sass": "*"
-  },
-  "dependencies": {
-    "gulp-uglify": "^2.0.0"
-  }
+	"name": "Hiraku",
+	"version": "1.0.2",
+	"description": "Drawer Menu jQuery Plugin",
+	"author": "appleple",
+	"url": "https://www.appleple.com",
+	"license": "MIT License",
+	"devDependencies": {
+		"es6-promise": "*",
+		"gulp": "*",
+		"gulp-autoprefixer": "*",
+		"gulp-clean-css": "*",
+		"gulp-csscomb": "*",
+		"gulp-merge-media-queries": "*",
+		"gulp-plumber": "*",
+		"gulp-rename": "*",
+		"gulp-sass": "*",
+		"gulp-uglify": "^2.0.0"
+	},
+	"scripts": {
+		"start": "gulp",
+		"gulp": "gulp"
+	}
 }
