@@ -85,15 +85,14 @@
 	$(document).on('click', '.js-hiraku-offcanvas-btn', function(e) {
 		var $target = $($(this).data('toggle-offcanvas'));
 		var $close = $('<button type="button">Close Offcanvas-Menu Button</button>');
-		var $first = $target.find(focusableElements).first();
-		var $last = $target.find(focusableElements).last();
+        $close.attr('aria-label', 'Close')
+            .addClass('js-hiraku-offcanvas-close-btn');
 		var $this = $(this);
 		var $body = $('body').css({ 'width': $(window).width(), 'height': $(window).height() });
 		var $sidebar = $target.find('.js-hiraku-offcanvas-sidebar');
-		$close
-			.attr('aria-label', 'Close')
-			.addClass('js-hiraku-offcanvas-close-btn');
 		$target.append($close);
+        var $first = $target.find(focusableElements).first();
+        var $last = $target.find(focusableElements).last();
 		$first.off('keydown.hiraku-offcanvas').on('keydown.hiraku-offcanvas', function(e) {
 			if ((e.which === 9 && e.shiftKey)) {
 				e.preventDefault();
