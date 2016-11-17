@@ -84,13 +84,13 @@
 	});
 	$(document).on('click', '.js-hiraku-offcanvas-btn', function(e) {
 		var $target = $($(this).data('toggle-offcanvas'));
-		var $close = $('<button type="button">Close Offcanvas-Menu Button</button>');
-        $close.attr('aria-label', 'Close')
-            .addClass('js-hiraku-offcanvas-close-btn');
+		$('<button type="button">Close Offcanvas-Menu Button</button>')
+            .attr('aria-label', 'Close')
+            .addClass('js-hiraku-offcanvas-close-btn')
+            .appendTo($target);
 		var $this = $(this);
 		var $body = $('body').css({ 'width': $(window).width(), 'height': $(window).height() });
 		var $sidebar = $target.find('.js-hiraku-offcanvas-sidebar');
-		$target.append($close);
         var $first = $target.find(focusableElements).first();
         var $last = $target.find(focusableElements).last();
 		$first.off('keydown.hiraku-offcanvas').on('keydown.hiraku-offcanvas', function(e) {
