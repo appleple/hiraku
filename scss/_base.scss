@@ -72,12 +72,12 @@
 }
 
 .js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar-right.active {
-	margin-right: 0px;
+	margin-right: 0;
 	transition: margin-right $animation;
 }
 
 .js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar-left.active {
-	margin-left: 0px;
+	margin-left: 0;
 	transition: margin-left $animation;
 }
 
