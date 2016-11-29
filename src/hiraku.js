@@ -72,7 +72,7 @@
 					.attr('data-toggle-offcanvas', '#' + id)
 					.attr('aria-expanded', false)
 					.attr('aria-label', 'Menu')
-					.attr('aria-controls', 'menu')
+					.attr('aria-controls', id)
 					.attr('id', 'hiraku-offcanvas-btn-' + num);
 			}
 			if (opt.fixedHeader) {
