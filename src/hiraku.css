@@ -120,7 +120,6 @@
 }
 
 .hiraku-open-btn {
-	width: 35px;
 	padding: 6px;
 	cursor: pointer;
 	border: 1px solid #ccc;
@@ -169,12 +168,12 @@
 }
 
 [aria-expanded='true'] .hiraku-open-btn-line:before {
-	-ms-transform: translateY(6px) rotate(45deg);
-	transform: translateY(6px) rotate(45deg);
+	-ms-transform: translate(-2px, 6px) rotate(45deg);
+	transform: translate(-2px, 6px) rotate(45deg);
 }
 
 [aria-expanded='true'] .hiraku-open-btn-line:after {
-	-ms-transform: translateY(-6px) rotate(-45deg);
-	transform: translateY(-6px) rotate(-45deg);
+	-ms-transform: translate(-2px, -6px) rotate(-45deg);
+	transform: translate(-2px, -6px) rotate(-45deg);
 }
 

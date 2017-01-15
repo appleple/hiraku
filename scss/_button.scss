@@ -2,7 +2,6 @@
 	background: transparent;
 	border: 1px solid #ccc;
 	padding: 6px;
-	width: 35px;
 	cursor: pointer;
 	border-radius: 3px;
 }
@@ -48,9 +47,9 @@
 }
 
 [aria-expanded="true"] .hiraku-open-btn-line:before {
-	transform: translateY(6px) rotate(45deg);
+	transform: translate(-2px, 6px) rotate(45deg);
 }
 
 [aria-expanded="true"] .hiraku-open-btn-line:after {
-	transform: translateY(-6px) rotate(-45deg);
+	transform: translate(-2px, -6px) rotate(-45deg);
 }
