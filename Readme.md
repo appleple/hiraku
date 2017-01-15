@@ -44,8 +44,6 @@ And if you want to change the width of the Offcanvas-menu, You may want to chang
 ```html
 <button class="hiraku-open-btn" id="offcanvas-btn-right" data-toggle-offcanvas="#js-hiraku-offcanvas-1">
 	<span class="hiraku-open-btn-line"></span>
-	<span class="hiraku-open-btn-line"></span>
-	<span class="hiraku-open-btn-line"></span>
 </button>
 <div class="offcanvas-right">
 	<ul><li>hogehoge</li></ul>
@@ -63,8 +61,6 @@ $(".offcanvas-right").hiraku({
 
 ```html
 <button class="hiraku-open-btn" id="offcanvas-btn-left" data-toggle-offcanvas="#js-hiraku-offcanvas-1">
-	<span class="hiraku-open-btn-line"></span>
-	<span class="hiraku-open-btn-line"></span>
 	<span class="hiraku-open-btn-line"></span>
 </button>
 <div class="offcanvas-left">
@@ -84,16 +80,12 @@ $(".offcanvas-left").hiraku({
 ```html
 <button class="hiraku-open-btn" id="offcanvas-btn-left" data-toggle-offcanvas="#js-hiraku-offcanvas-1">
 	<span class="hiraku-open-btn-line"></span>
-	<span class="hiraku-open-btn-line"></span>
-	<span class="hiraku-open-btn-line"></span>
 </button>
 <div class="offcanvas-left">
 	<ul><li>hogehoge</li></ul>
 </div>
 
 <button class="hiraku-open-btn" id="offcanvas-btn-right" data-toggle-offcanvas="#js-hiraku-offcanvas-1">
-	<span class="hiraku-open-btn-line"></span>
-	<span class="hiraku-open-btn-line"></span>
 	<span class="hiraku-open-btn-line"></span>
 </button>
 <div class="offcanvas-right">
