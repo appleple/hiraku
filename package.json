@@ -1,9 +1,10 @@
 {
 	"name": "Hiraku",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Drawer Menu jQuery Plugin",
 	"author": "appleple",
 	"url": "https://www.appleple.com",
+	"main": "src/hiraku.js",
 	"license": "MIT License",
 	"devDependencies": {
 		"es6-promise": "*",
