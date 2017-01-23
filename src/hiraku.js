@@ -135,13 +135,13 @@
 				.removeClass('js-hiraku-offcanvas-body-right')
 				.removeClass('js-hiraku-offcanvas-body-left');
 			$('.js-hiraku-offcanvas-sidebar').removeClass('active');
+			$('body').css({ width: '', height: '' });
 			setTimeout(function() {
 				$(e.target)
 					.removeClass('js-hiraku-offcanvas-open')
 					.attr('aria-hidden', true);
 				$('.js-hiraku-offcanvas-body').removeClass('js-hiraku-offcanvas-body-moving');
 				$('html').css('marginTop', '');
-				$('body').css({ width: '', height: '' });
 				window.scrollTo(winPos.x, winPos.y);
 				var $btn = $('.js-hiraku-offcanvas-btn-active');
 				$btn
