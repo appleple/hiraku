@@ -1,5 +1,5 @@
 /*!
- * Hiraku Ver.1.0.4 (https://www.appleple.com)
+ * Hiraku Ver.1.0.5 (https://www.appleple.com)
  * Copyright appleple | MIT License
  *
  */
@@ -142,7 +142,9 @@
 					.attr('aria-hidden', true);
 				$('.js-hiraku-offcanvas-body').removeClass('js-hiraku-offcanvas-body-moving');
 				$('html').css('marginTop', '');
-				window.scrollTo(winPos.x, winPos.y);
+				setTimeout(function(){
+					window.scrollTo(winPos.x, winPos.y);
+				},1);
 				var $btn = $('.js-hiraku-offcanvas-btn-active');
 				$btn
 					.removeClass('js-hiraku-offcanvas-btn-active')
