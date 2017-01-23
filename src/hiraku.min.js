@@ -1,5 +1,5 @@
 /*!
- * Hiraku Ver.1.0.2 (https://www.appleple.com)
+ * Hiraku Ver.1.0.4 (https://www.appleple.com)
  * Copyright appleple | MIT License
  *
  */
