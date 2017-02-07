@@ -1,2 +1,2 @@
-linguist-language=JavaScript
 examples/* linguist-documentation
+scss/* linguist-vendored=true
