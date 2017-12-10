@@ -128,7 +128,17 @@
 		}, 1);
 		e.preventDefault();
 	});
-	$(document).on('click touchstart', '.js-hiraku-offcanvas', function(e) {
+	$(document).on('click touchstart keyup', '.js-hiraku-offcanvas', function(e) {
+		// add the ability to close the off-canvas if the escape key is pressed
+		if (e.type === 'keyup' && e.keyCode !== 27) {
+			return;
+		}
+
+		if (e.type === 'keyup') {
+			// simulate the right element instead of passing the active element in DOM (such as triggers)
+			e.target = document.querySelector('.js-hiraku-offcanvas');
+		}
+
 		if ($(e.target).hasClass('js-hiraku-offcanvas')) {
 			$('.js-hiraku-offcanvas-body')
 				.addClass('js-hiraku-offcanvas-body-moving')

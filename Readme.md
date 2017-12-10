@@ -52,9 +52,9 @@ And if you want to change the width of the Offcanvas-menu, You may want to chang
 
 ```js
 $(".offcanvas-right").hiraku({
-	btn:"#offcanvas-btn-right",
-	fixedHeader:"#header",
-	direction:"right"
+	btn: "#offcanvas-btn-right",
+	fixedHeader: "#header",
+	direction: "right"
 });
 ```
 ### From left side
@@ -70,9 +70,9 @@ $(".offcanvas-right").hiraku({
 
 ```js
 $(".offcanvas-left").hiraku({
-	btn:"#offcanvas-btn-left",
-	fixedHeader:"#header",
-	direction:"left"
+	btn: "#offcanvas-btn-left",
+	fixedHeader: "#header",
+	direction: "left"
 });
 ```
 ### From both side
@@ -95,16 +95,16 @@ $(".offcanvas-left").hiraku({
 
 ```js
 $(".offcanvas-left").hiraku({
-	btn:"#offcanvas-btn-left",
-	fixedHeader:"#header",
-	direction:"left"
+	btn: "#offcanvas-btn-left",
+	fixedHeader: "#header",
+	direction: "left"
 });
 
 
 $(".offcanvas-right").hiraku({
-	btn:"#offcanvas-btn-right",
-	fixedHeader:"#header",
-	direction:"right"
+	btn: "#offcanvas-btn-right",
+	fixedHeader: "#header",
+	direction: "right"
 });
 ```
 
@@ -125,11 +125,11 @@ By default, main contents will be pressed out. But if you want to fix main conte
 }
 
 .js-hiraku-offcanvas-body-right {
-	left:0;
+	left: 0;
 }
 
 .js-hiraku-offcanvas-body-left {
-	left:0;
+	left: 0;
 }
 ```
 
@@ -148,23 +148,23 @@ By default, width of the Offcanvas-menu is 70% of the screen size. But you may w
 }
 
 .js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar-left {
-	margin-left:-210px;
+	margin-left: -210px;
 }
-
+ 
 .js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar-right {
-	margin-right:210px;
+	margin-right: 210px;
 }
 
 .js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar {
-	width:210px;
+	width: 210px;
 }
 
 .js-hiraku-offcanvas-body-left {
-	left:210px;
+	left: 210px;
 }
 
 .js-hiraku-offcanvas-body-right {
-	right:210px;
+	right: 210px;
 }
 ```
 
