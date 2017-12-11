@@ -25,7 +25,7 @@
 		$('.js-hiraku-offcanvas').each(function() {
 			var $this = $(this);
 			var breakpoint = $(this).data('breakpoint');
-			if ($this.hasClass('js-hiraku-offcanvas-open')) {
+			if ($this.hasClass('js-hiraku-offcanvas-open') && (breakpoint === -1 || breakpoint >= window.innerWidth)) {
 				return;
 			}
 			if (breakpoint === -1 || breakpoint >= window.innerWidth) {
@@ -35,7 +35,8 @@
 			} else {
 				$this
 					.removeClass('js-hiraku-offcanvas-active')
-					.attr('aria-hidden', false);
+					.attr('aria-hidden', false)
+					.trigger('click');
 			}
 		});
 	};
