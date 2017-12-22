@@ -55,6 +55,7 @@
 			}
 			$this.attr('role', 'navigation');
 			var $parent = $this.parent('.js-hiraku-offcanvas');
+			$parent.data('opt', opt);
 			$parent
 				.attr('aria-hidden', 'true')
 				.attr('aria-labelledby', 'hiraku-offcanvas-btn-' + num)
