@@ -163,7 +163,7 @@
 					.attr('aria-expanded', false)
 					.focus();
 				$(e.target).find('.js-hiraku-offcanvas-close-btn').remove();
-				if (opt.onCloce) {
+				if (opt.onClose) {
 					opt.onClose();
 				}
 			}, 300);
