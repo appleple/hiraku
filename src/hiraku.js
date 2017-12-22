@@ -142,6 +142,8 @@
 		}
 
 		if ($(e.target).hasClass('js-hiraku-offcanvas')) {
+			var opt = $(this).data('opt');
+			
 			$('.js-hiraku-offcanvas-body')
 				.addClass('js-hiraku-offcanvas-body-moving')
 				.removeClass('js-hiraku-offcanvas-body-right')
