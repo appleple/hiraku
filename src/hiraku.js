@@ -1,5 +1,5 @@
 /*!
- * Hiraku Ver.1.0.7 (https://www.appleple.com)
+ * Hiraku Ver.1.0.8 (https://www.appleple.com)
  * Copyright appleple | MIT License
  *
  */
@@ -21,7 +21,7 @@
 	var winPos = { x: window.scrollX, y: window.scrollY };
 	var focusableElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]';
 	var animationFrameId;
-	var windowWidth = $(window).width();
+	var windowWidth = 0;
 	var resizeHandler = function() {
         // Check window width has actually changed and it's not just iOS triggering a resize event on scroll
 		if ($(window).width() === windowWidth) {
