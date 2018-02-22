@@ -1,4 +1,5 @@
-import { getUniqId, getWindowWidth, hasClass, addClass, getScrollTop, wrap, after } from '../lib';
+import { getUniqId, getWindowWidth, hasClass, addClass, removeClass, getScrollTop, wrap, after } from '../lib';
+import IScroll from 'iscroll';
 
 const defaults = {
   direction: 'right',
@@ -23,7 +24,9 @@ export default class Hiraku {
     window.addEventListener('resize', () => {
       if ('requestAnimationFrame' in window) {
         cancelAnimationFrame(this.animationFrameId);
-        this.animationFrameId = requestAnimationFrame(resizeHandler);
+        this.animationFrameId = requestAnimationFrame(() => {
+          this.resizeHandler();
+        });
       } else {
         this.resizeHandler();
       }
@@ -55,6 +58,7 @@ export default class Hiraku {
     parent.addEventListener('keyup', (e) => {
       this.offcanvasClickHandler(e);
     });
+    new IScroll(side);
   }
 
   _setHirakuBtn(btn, id) {
@@ -106,12 +110,17 @@ export default class Hiraku {
     if (fixed) {
       fixed.style.transform = `translateY(${getScrollTop()}px)`;
     }
-    first.focus();
+    side.style.transform = `translateX(100%) translateY(${getScrollTop()}px)`;
   }
 
   offcanvasClickHandler(e) {
-    const { parent, body } = this;
+    const { parent, body, fixed } = this;
     const { direction } = this.opt;
+    const onTransitionEnd = () => {
+      fixed.style.transform = 'translateY(0px)';
+      body.removeEventListener('webkitTransitionEnd', onTransitionEnd);
+      body.removeEventListener('transitionend', onTransitionEnd);
+    }
 		if (e.type === 'keyup' && e.keyCode !== 27) {
 			return;
     }
@@ -123,26 +132,28 @@ export default class Hiraku {
     } else {
       removeClass(body, 'js-hiraku-offcanvas-body-left');
     }
+    body.addEventListener('webkitTransitionEnd', onTransitionEnd);
+    body.addEventListener('transitionend', onTransitionEnd);
   }
   
   resizeHandler() {
     const windowWidth = getWindowWidth();
     const {breakpoint} = this.opt;
-    const ele = this.ele;
+    const side = this.side;
     if (windowWidth === this.windowWidth) {
       return;
     }
     this.windowWidth = windowWidth;
-    if (hasClass(ele, 'js-hiraku-offcanvas-open') && (breakpoint === 1 || breakpoint >= windowWidth)) {
+    if (hasClass(side, 'js-hiraku-offcanvas-open') && (breakpoint === 1 || breakpoint >= windowWidth)) {
       return;
     }
     if (breakpoint === -1 || breakpoint >= windowWidth) {
-      addClass(ele, 'js-hiraku-offcanvas-active');
-      ele.setAttribute('aria-hidden', true);
+      addClass(side, 'js-hiraku-offcanvas-active');
+      side.setAttribute('aria-hidden', true);
     } else {
-      removeClass(ele, 'js-hiraku-offcanvas-active');
-      ele.setAttribute('aria-hidden', false);
-      ele.click();
+      removeClass(side, 'js-hiraku-offcanvas-active');
+      side.setAttribute('aria-hidden', false);
+      side.click();
     }
   }
 
