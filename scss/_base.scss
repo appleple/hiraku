@@ -1,5 +1,6 @@
-.js-hiraku-offcanvas-active {
-	display: none;
+.js-hiraku-offcanvas-body-right .js-hiraku-offcanvas,
+.js-hiraku-offcanvas-body-left .js-hiraku-offcanvas {
+	display: block;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -11,32 +12,26 @@
 	background: $offcanvas-overlay;
 }
 
+
+
 .js-hiraku-offcanvas-open {
 	display: block;
 }
 
 .js-hiraku-offcanvas-body {
 	width: 100%;
-	left: 0;
-	transition: left $animation;
+	transition: transform $animation;
 	z-index: 0;
 }
 
 .js-hiraku-offcanvas-body-right {
 	overflow-y: hidden;
-	left: (- $side-menu-width);
-	position: fixed;
+	transform: translateX(- $side-menu-width);
 }
 
 .js-hiraku-offcanvas-body-left {
 	overflow-y: hidden;
 	left: $side-menu-width;
-	position: fixed;
-}
-
-.js-hiraku-offcanvas-body-moving {
-	left: 0;
-	position: fixed;
 }
 
 .js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar {
@@ -71,18 +66,7 @@
 	transition: margin-left $animation;
 }
 
-.js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar-right.active {
-	margin-right: 0;
-	transition: margin-right $animation;
-}
-
-.js-hiraku-offcanvas-active .js-hiraku-offcanvas-sidebar-left.active {
-	margin-left: 0;
-	transition: margin-left $animation;
-}
-
 .js-hiraku-header-fixed {
-	transition: margin-left $animation;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -92,14 +76,6 @@
 .js-hiraku-offcanvas-body-right,
 .js-hiraku-offcanvas-body-left {
 	overflow: hidden;
-}
-
-.js-hiraku-offcanvas-body-right .js-hiraku-header-fixed {
-	margin-left: (- $side-menu-width);
-}
-
-.js-hiraku-offcanvas-body-left .js-hiraku-header-fixed {
-	margin-left: $side-menu-width;
 }
 
 .js-hiraku-offcanvas-close-btn {

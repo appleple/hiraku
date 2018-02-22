@@ -81,9 +81,6 @@ var Hiraku = function () {
     this._setHirakuSideMenu(this.side, this.id);
     this._setHirakuBtn(this.btn, this.id);
     this._setHirakuBody(this.body);
-    if (this.fixed) {
-      (0, _lib.addClass)(this.fixed, 'js-hiraku-header-fixed');
-    }
   }
 
   _createClass(Hiraku, [{
@@ -95,23 +92,17 @@ var Hiraku = function () {
           closeLabel = _opt.closeLabel,
           direction = _opt.direction;
 
-      var parent = side.parentElement;
-      if (!(0, _lib.hasClass)(parent, 'js-hiraku-offcanvas')) {
-        var div = document.createElement('div');
-        (0, _lib.addClass)(div, 'js-hiraku-offcanvas');
-        div.appendChild(side);
-        parent = side.parentElement;
-      }
+      (0, _lib.after)(side, '<div class="js-hiraku-offcanvas"></div>');
       if (direction === 'right') {
         (0, _lib.addClass)(side, 'js-hiraku-offcanvas-sidebar-right');
       } else {
         (0, _lib.addClass)(side, 'js-hiraku-offcanvas-sidebar-left');
       }
-      parent.setAttribute('aria-hidden', true);
-      parent.setAttribute('aria-labelledby', 'hiraku-offcanvas-btn-' + id);
-      parent.setAttribute('id', id);
-      parent.setAttribute('aria-label', closeLabel);
-      this.parent = parent;
+      side.setAttribute('aria-hidden', true);
+      side.setAttribute('aria-labelledby', 'hiraku-offcanvas-btn-' + id);
+      side.setAttribute('id', id);
+      side.setAttribute('aria-label', closeLabel);
+      this.parent = side.nextElementSibling;
       parent.addEventListener('click', function (e) {
         _this2.offcanvasClickHandler(e);
       });
@@ -154,7 +145,7 @@ var Hiraku = function () {
           parent = this.parent,
           body = this.body;
       var _opt2 = this.opt,
-          position = _opt2.position,
+          direction = _opt2.direction,
           focusableElements = _opt2.focusableElements;
 
       var elements = side.querySelectorAll(focusableElements);
@@ -178,10 +169,13 @@ var Hiraku = function () {
       btn.setAttribute('aria-expanded', true);
       (0, _lib.addClass)(btn, 'js-hiraku-offcanvas-btn-active');
       parent.setAttribute('aria-hidden', false);
-      if (position === 'right') {
+      if (direction === 'right') {
         (0, _lib.addClass)(body, 'js-hiraku-offcanvas-body-right');
       } else {
         (0, _lib.addClass)(body, 'js-hiraku-offcanvas-body-left');
+      }
+      if (fixed) {
+        fixed.style.transform = 'translateY(' + (0, _lib.getScrollTop)() + 'px)';
       }
       first.focus();
     }
@@ -190,7 +184,7 @@ var Hiraku = function () {
     value: function offcanvasClickHandler(e) {
       var parent = this.parent,
           body = this.body;
-      var position = this.opt.position;
+      var direction = this.opt.direction;
 
       if (e.type === 'keyup' && e.keyCode !== 27) {
         return;
@@ -198,7 +192,7 @@ var Hiraku = function () {
       if (e.target !== parent) {
         return;
       }
-      if (position === 'right') {
+      if (direction === 'right') {
         removeClass(body, 'js-hiraku-offcanvas-body-right');
       } else {
         removeClass(body, 'js-hiraku-offcanvas-body-left');
@@ -273,6 +267,19 @@ var addClass = exports.addClass = function addClass(element, className) {
   } else {
     element.className += ' ' + className;
   }
+};
+
+var getScrollTop = exports.getScrollTop = function getScrollTop() {
+  return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+};
+
+var wrap = exports.wrap = function wrap(el, wrapper) {
+  el.parentNode.insertBefore(wrapper, el);
+  wrapper.appendChild(el);
+};
+
+var after = exports.after = function after(el, html) {
+  el.insertAdjacentHTML('afterend', html);
 };
 
 },{}]},{},[1]);

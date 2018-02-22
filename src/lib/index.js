@@ -26,3 +26,16 @@ export const addClass = (element,className) => {
     element.className += ` ${className}`;
   }
 }
+
+export const getScrollTop = () => {
+  return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+}
+
+export const wrap = (el, wrapper) => {
+  el.parentNode.insertBefore(wrapper, el);
+  wrapper.appendChild(el);
+}
+
+export const after = (el, html) => {
+  el.insertAdjacentHTML('afterend', html);
+}
