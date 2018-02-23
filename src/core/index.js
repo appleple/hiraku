@@ -1,5 +1,5 @@
 import { getUniqId, getWindowWidth, hasClass, addClass, removeClass, getScrollTop, wrap, after } from '../lib';
-import IScroll from 'iscroll';
+import PerfectScrollBar from 'perfect-scrollbar';
 
 const defaults = {
   direction: 'right',
@@ -7,7 +7,7 @@ const defaults = {
   btn: '.js-hiraku-offcanvas-btn',
   btnLabel: 'Menu',
   closeLabel: 'Close',
-  // fixedHeader: '.js-hiraku-fixed-header',
+  fixedHeader: '.js-hiraku-fixed-header',
   focusableElements: 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]'
 }
 
@@ -58,7 +58,7 @@ export default class Hiraku {
     parent.addEventListener('keyup', (e) => {
       this.offcanvasClickHandler(e);
     });
-    new IScroll(side);
+    new PerfectScrollBar(side);
   }
 
   _setHirakuBtn(btn, id) {
@@ -110,16 +110,19 @@ export default class Hiraku {
     if (fixed) {
       fixed.style.transform = `translateY(${getScrollTop()}px)`;
     }
+    side.style.height = `${window.innerHeight}px`;
     side.style.transform = `translateX(100%) translateY(${getScrollTop()}px)`;
   }
 
   offcanvasClickHandler(e) {
-    const { parent, body, fixed } = this;
+    const { parent, body, fixed, btn } = this;
     const { direction } = this.opt;
     const onTransitionEnd = () => {
       fixed.style.transform = 'translateY(0px)';
       body.removeEventListener('webkitTransitionEnd', onTransitionEnd);
       body.removeEventListener('transitionend', onTransitionEnd);
+      btn.setAttribute('aria-expanded', false);
+      removeClass(btn, 'js-hiraku-offcanvas-btn-active');
     }
 		if (e.type === 'keyup' && e.keyCode !== 27) {
 			return;
@@ -140,6 +143,7 @@ export default class Hiraku {
     const windowWidth = getWindowWidth();
     const {breakpoint} = this.opt;
     const side = this.side;
+    side.style.height = `${window.innerHeight}px`;
     if (windowWidth === this.windowWidth) {
       return;
     }
