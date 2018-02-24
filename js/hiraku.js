@@ -43,8 +43,9 @@ var Hiraku = function () {
     this.side = document.querySelector(selector);
     this.btn = document.querySelector(opt.btn);
     this.fixed = document.querySelector(opt.fixedHeader);
-    this.windowWidth = (0, _lib.getWindowWidth)();
+    this.windowWidth = 0;
     this.id = (0, _lib.getUniqId)();
+    this.opened = false;
     window.addEventListener('resize', function () {
       if ('requestAnimationFrame' in window) {
         cancelAnimationFrame(_this.animationFrameId);
@@ -55,12 +56,23 @@ var Hiraku = function () {
         _this.resizeHandler();
       }
     });
+    window.addEventListener('touchmove', function (e) {
+      _this._onScroll();
+    });
     this._setHirakuSideMenu(this.side, this.id);
     this._setHirakuBtn(this.btn, this.id);
     this._setHirakuBody(this.body);
+    this.resizeHandler();
   }
 
   _createClass(Hiraku, [{
+    key: '_onScroll',
+    value: function _onScroll() {
+      if (this.opened === true) {
+        e.preventDefault();
+      }
+    }
+  }, {
     key: '_setHirakuSideMenu',
     value: function _setHirakuSideMenu(side, id) {
       var _this2 = this;
@@ -102,8 +114,8 @@ var Hiraku = function () {
       btn.setAttribute('aria-label', btnLabel);
       btn.setAttribute('aria-controls', id);
       btn.setAttribute('id', 'hiraku-offcanvas-btn-' + id);
-      btn.addEventListener('click', function (e) {
-        _this3.clickHandler(e);
+      btn.addEventListener('click', function () {
+        _this3.open();
       });
     }
   }, {
@@ -114,8 +126,8 @@ var Hiraku = function () {
       (0, _lib.addClass)(body, 'js-hiraku-offcanvas-body');
     }
   }, {
-    key: 'clickHandler',
-    value: function clickHandler(e) {
+    key: 'open',
+    value: function open() {
       var side = this.side,
           btn = this.btn,
           fixed = this.fixed,
@@ -138,7 +150,7 @@ var Hiraku = function () {
           first.focus();
         }
       };
-
+      this.opened = true;
       first.removeEventListener('keydown', lastFocus);
       first.addEventListener('keydown', lastFocus);
       last.removeEventListener('keydown', firstFocus);
@@ -158,10 +170,11 @@ var Hiraku = function () {
       side.style.transform = 'translateX(100%) translateY(' + (0, _lib.getScrollTop)() + 'px)';
     }
   }, {
-    key: 'offcanvasClickHandler',
-    value: function offcanvasClickHandler(e) {
-      var parent = this.parent,
-          body = this.body,
+    key: 'close',
+    value: function close() {
+      var _this4 = this;
+
+      var body = this.body,
           fixed = this.fixed,
           btn = this.btn;
       var direction = this.opt.direction;
@@ -172,13 +185,8 @@ var Hiraku = function () {
         body.removeEventListener('transitionend', onTransitionEnd);
         btn.setAttribute('aria-expanded', false);
         (0, _lib.removeClass)(btn, 'js-hiraku-offcanvas-btn-active');
+        _this4.opened = false;
       };
-      if (e.type === 'keyup' && e.keyCode !== 27) {
-        return;
-      }
-      if (e.target !== parent) {
-        return;
-      }
       if (direction === 'right') {
         (0, _lib.removeClass)(body, 'js-hiraku-offcanvas-body-right');
       } else {
@@ -186,6 +194,42 @@ var Hiraku = function () {
       }
       body.addEventListener('webkitTransitionEnd', onTransitionEnd);
       body.addEventListener('transitionend', onTransitionEnd);
+    }
+  }, {
+    key: 'offcanvasClickHandler',
+    value: function offcanvasClickHandler(e) {
+      var parent = this.parent;
+
+      if (e.type === 'keyup' && e.keyCode !== 27) {
+        return;
+      }
+      if (e.target !== parent) {
+        return;
+      }
+      this.close();
+    }
+  }, {
+    key: '_isTouched',
+    value: function _isTouched(e) {
+      if (e && e.touches) {
+        return true;
+      }
+      return false;
+    }
+  }, {
+    key: '_getTouchPos',
+    value: function _getTouchPos(e) {
+      var x = 0;
+      var y = 0;
+      e = typeof event === 'undefined' ? e : event;
+      if (this._isTouched(e)) {
+        x = e.touches[0].pageX;
+        y = e.touches[0].pageY;
+      } else if (e.pageX) {
+        x = e.pageX;
+        y = e.pageY;
+      }
+      return { x: x, y: y };
     }
   }, {
     key: 'resizeHandler',
