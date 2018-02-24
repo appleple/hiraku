@@ -57,7 +57,7 @@ export default class Hiraku {
     parent.addEventListener('keyup', (e) => {
       this.offcanvasClickHandler(e);
     });
-    new PerfectScrollBar(side);
+    
   }
 
   _setHirakuBtn(btn, id) {
