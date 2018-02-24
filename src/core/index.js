@@ -154,6 +154,7 @@ export default class Hiraku {
       side.setAttribute('aria-hidden', true);
     } else {
       removeClass(body, 'js-hiraku-offcanvas-body-active');
+      side.style.transform = '';
       side.setAttribute('aria-hidden', false);
       side.click();
     }
