@@ -1,5 +1,4 @@
 import { getUniqId, getWindowWidth, hasClass, addClass, removeClass, getScrollTop, wrap, after } from '../lib';
-import IScroll from 'iscroll';
 
 const defaults = {
   direction: 'right',
@@ -7,7 +6,7 @@ const defaults = {
   btn: '.js-hiraku-offcanvas-btn',
   btnLabel: 'Menu',
   closeLabel: 'Close',
-  // fixedHeader: '.js-hiraku-fixed-header',
+  fixedHeader: '.js-hiraku-fixed-header',
   focusableElements: 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]'
 }
 
@@ -58,7 +57,7 @@ export default class Hiraku {
     parent.addEventListener('keyup', (e) => {
       this.offcanvasClickHandler(e);
     });
-    new IScroll(side);
+    new PerfectScrollBar(side);
   }
 
   _setHirakuBtn(btn, id) {
@@ -110,6 +109,7 @@ export default class Hiraku {
     if (fixed) {
       fixed.style.transform = `translateY(${getScrollTop()}px)`;
     }
+    side.style.height = `${window.innerHeight}px`;
     side.style.transform = `translateX(100%) translateY(${getScrollTop()}px)`;
   }
 
