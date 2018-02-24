@@ -2268,13 +2268,16 @@ var Hiraku = function () {
     value: function offcanvasClickHandler(e) {
       var parent = this.parent,
           body = this.body,
-          fixed = this.fixed;
+          fixed = this.fixed,
+          btn = this.btn;
       var direction = this.opt.direction;
 
       var onTransitionEnd = function onTransitionEnd() {
         fixed.style.transform = 'translateY(0px)';
         body.removeEventListener('webkitTransitionEnd', onTransitionEnd);
         body.removeEventListener('transitionend', onTransitionEnd);
+        btn.setAttribute('aria-expanded', false);
+        (0, _lib.removeClass)(btn, 'js-hiraku-offcanvas-btn-active');
       };
       if (e.type === 'keyup' && e.keyCode !== 27) {
         return;
@@ -2294,9 +2297,11 @@ var Hiraku = function () {
     key: 'resizeHandler',
     value: function resizeHandler() {
       var windowWidth = (0, _lib.getWindowWidth)();
-      var breakpoint = this.opt.breakpoint;
+      var body = this.body,
+          side = this.side,
+          opt = this.opt;
+      var breakpoint = opt.breakpoint;
 
-      var side = this.side;
       if (windowWidth === this.windowWidth) {
         return;
       }
@@ -2305,10 +2310,10 @@ var Hiraku = function () {
         return;
       }
       if (breakpoint === -1 || breakpoint >= windowWidth) {
-        (0, _lib.addClass)(side, 'js-hiraku-offcanvas-active');
+        (0, _lib.addClass)(body, 'js-hiraku-offcanvas-body-active');
         side.setAttribute('aria-hidden', true);
       } else {
-        (0, _lib.removeClass)(side, 'js-hiraku-offcanvas-active');
+        (0, _lib.removeClass)(body, 'js-hiraku-offcanvas-body-active');
         side.setAttribute('aria-hidden', false);
         side.click();
       }

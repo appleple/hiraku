@@ -114,12 +114,14 @@ export default class Hiraku {
   }
 
   offcanvasClickHandler(e) {
-    const { parent, body, fixed } = this;
+    const { parent, body, fixed, btn } = this;
     const { direction } = this.opt;
     const onTransitionEnd = () => {
       fixed.style.transform = 'translateY(0px)';
       body.removeEventListener('webkitTransitionEnd', onTransitionEnd);
       body.removeEventListener('transitionend', onTransitionEnd);
+      btn.setAttribute('aria-expanded', false);
+      removeClass(btn, 'js-hiraku-offcanvas-btn-active');
     }
 		if (e.type === 'keyup' && e.keyCode !== 27) {
 			return;
@@ -138,8 +140,8 @@ export default class Hiraku {
   
   resizeHandler() {
     const windowWidth = getWindowWidth();
-    const {breakpoint} = this.opt;
-    const side = this.side;
+    const { body, side, opt } = this;
+    const { breakpoint } = opt;
     if (windowWidth === this.windowWidth) {
       return;
     }
@@ -148,10 +150,10 @@ export default class Hiraku {
       return;
     }
     if (breakpoint === -1 || breakpoint >= windowWidth) {
-      addClass(side, 'js-hiraku-offcanvas-active');
+      addClass(body, 'js-hiraku-offcanvas-body-active');
       side.setAttribute('aria-hidden', true);
     } else {
-      removeClass(side, 'js-hiraku-offcanvas-active');
+      removeClass(body, 'js-hiraku-offcanvas-body-active');
       side.setAttribute('aria-hidden', false);
       side.click();
     }
