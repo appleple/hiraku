@@ -1,3 +1,4 @@
+import scrollToElement from 'scroll-to-element';
 import { getUniqId, getWindowWidth, getWindowHeight, hasClass, addClass, removeClass, getScrollTop, wrap, after } from '../lib';
 
 const defaults = {
@@ -131,7 +132,12 @@ export default class Hiraku {
         if (href.charAt(0) === '#') {
           e.preventDefault();
           this.close(() => {
-            //todo
+            const target = document.querySelector(href);
+            let offset = 0;
+            if (this.fixed) {
+              offset = - this.fixed.offsetHeight;
+            }
+            scrollToElement(target, { offset });
           });
         }
       });
