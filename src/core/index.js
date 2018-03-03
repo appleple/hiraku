@@ -104,6 +104,7 @@ export default class Hiraku {
 
   _setHirakuSideMenu(side, id) {
     const { closeLabel, direction } = this.opt;
+    const links = side.querySelectorAll('a');
     after(side, '<div class="js-hiraku-offcanvas"></div>');
     if (direction === 'right') {
       addClass(side, 'js-hiraku-offcanvas-sidebar-right');
@@ -123,6 +124,17 @@ export default class Hiraku {
     });
     parent.addEventListener('keyup', (e) => {
       this.offcanvasClickHandler(e);
+    });
+    [].forEach.call(links, (link) => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href.charAt(0) === '#') {
+          e.preventDefault();
+          this.close(() => {
+            //todo
+          });
+        }
+      });
     });
   }
 
@@ -181,7 +193,7 @@ export default class Hiraku {
     side.style.marginTop = '0px';
   }
 
-  close() {
+  close(callback = () => {}) {
     const { body, fixed, btn, side } = this;
     const { direction } = this.opt;
     const onTransitionEnd = () => {
@@ -191,6 +203,7 @@ export default class Hiraku {
       btn.setAttribute('aria-expanded', false);
       removeClass(btn, 'js-hiraku-offcanvas-btn-active');
       this.opened = false;
+      callback();
     }
     if (direction === 'right') {
       removeClass(body, 'js-hiraku-offcanvas-body-right');
