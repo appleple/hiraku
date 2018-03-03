@@ -996,7 +996,7 @@ var Hiraku = function () {
               if (_this3.fixed) {
                 offset = -_this3.fixed.offsetHeight;
               }
-              (0, _scrollToElement2.default)(target, { offset: offset });
+              (0, _scrollToElement2.default)(target, { offset: offset, duration: 500 });
             });
           }
         });

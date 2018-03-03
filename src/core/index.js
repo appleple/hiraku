@@ -137,7 +137,7 @@ export default class Hiraku {
             if (this.fixed) {
               offset = - this.fixed.offsetHeight;
             }
-            scrollToElement(target, { offset });
+            scrollToElement(target, { offset, duration: 500 });
           });
         }
       });
