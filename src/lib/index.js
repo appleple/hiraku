@@ -11,6 +11,15 @@ export const getWindowWidth = () => {
   return 0;
 }
 
+export const getWindowHeight = () => {
+  if (document && document.documentElement) {
+    return document.documentElement.clientHeight;
+  } else if (window && window.innerHeight) {
+    return window.innerHeight;
+  }
+  return 0;
+}
+
 export const hasClass = (el, className) => {
   if (el.classList) {
     el.classList.contains(className);

@@ -1,4 +1,4 @@
-import { getUniqId, getWindowWidth, hasClass, addClass, removeClass, getScrollTop, wrap, after } from '../lib';
+import { getUniqId, getWindowWidth, getWindowHeight, hasClass, addClass, removeClass, getScrollTop, wrap, after } from '../lib';
 
 const defaults = {
   direction: 'right',
@@ -56,8 +56,16 @@ export default class Hiraku {
     e.preventDefault();
     const posY = this._getTouchPos(e).y;
     const y = posY - this.oldPosY;
+    const limitHeight = this.side.offsetHeight - getWindowHeight();
     this.scrollAmount += y;
-    console.log(posY, this.oldPosY);
+    console.log(this.side.offsetHeight, getWindowHeight());
+    if (this.scrollAmount < -limitHeight) {
+      this.scrollAmount = -limitHeight;
+    }
+    if (this.scrollAmount > 0) {
+      this.scrollAmount = 0;
+    }
+    console.log(this.scrollAmount);
     this.side.style.marginTop = `${this.scrollAmount}px`;
     this.oldPosY = posY;
   }
@@ -135,7 +143,6 @@ export default class Hiraku {
     if (fixed) {
       fixed.style.transform = `translateY(${getScrollTop()}px)`;
     }
-    side.style.height = `${window.innerHeight}px`;
     side.style.transform = `translateX(100%) translateY(${getScrollTop()}px)`;
   }
 

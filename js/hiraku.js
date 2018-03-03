@@ -84,8 +84,16 @@ var Hiraku = function () {
       e.preventDefault();
       var posY = this._getTouchPos(e).y;
       var y = posY - this.oldPosY;
+      var limitHeight = this.side.offsetHeight - (0, _lib.getWindowHeight)();
       this.scrollAmount += y;
-      console.log(posY, this.oldPosY);
+      console.log(this.side.offsetHeight, (0, _lib.getWindowHeight)());
+      if (this.scrollAmount < -limitHeight) {
+        this.scrollAmount = -limitHeight;
+      }
+      if (this.scrollAmount > 0) {
+        this.scrollAmount = 0;
+      }
+      console.log(this.scrollAmount);
       this.side.style.marginTop = this.scrollAmount + 'px';
       this.oldPosY = posY;
     }
@@ -183,7 +191,6 @@ var Hiraku = function () {
       if (fixed) {
         fixed.style.transform = 'translateY(' + (0, _lib.getScrollTop)() + 'px)';
       }
-      side.style.height = window.innerHeight + 'px';
       side.style.transform = 'translateX(100%) translateY(' + (0, _lib.getScrollTop)() + 'px)';
     }
   }, {
@@ -302,6 +309,15 @@ var getWindowWidth = exports.getWindowWidth = function getWindowWidth() {
     return document.documentElement.clientWidth;
   } else if (window && window.innerWidth) {
     return window.innerWidth;
+  }
+  return 0;
+};
+
+var getWindowHeight = exports.getWindowHeight = function getWindowHeight() {
+  if (document && document.documentElement) {
+    return document.documentElement.clientHeight;
+  } else if (window && window.innerHeight) {
+    return window.innerHeight;
   }
   return 0;
 };
