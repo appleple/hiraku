@@ -207,6 +207,8 @@ export default class Hiraku {
       body.removeEventListener('webkitTransitionEnd', onTransitionEnd);
       body.removeEventListener('transitionend', onTransitionEnd);
       btn.setAttribute('aria-expanded', false);
+      side.style.transform = '';
+      side.setAttribute('aria-hidden', false);
       removeClass(btn, 'js-hiraku-offcanvas-btn-active');
       this.opened = false;
       callback();
@@ -218,8 +220,6 @@ export default class Hiraku {
     }
     body.addEventListener('webkitTransitionEnd', onTransitionEnd);
     body.addEventListener('transitionend', onTransitionEnd);
-    side.style.transform = '';
-    side.setAttribute('aria-hidden', false);
   }
 
   offcanvasClickHandler(e) {
