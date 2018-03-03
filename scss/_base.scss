@@ -18,7 +18,6 @@
 		top: 0;
 		max-width: 100%;
 		background-color: #fff;
-		overflow-y: scroll;
 		box-sizing: border-box;
 	}
 }
@@ -39,16 +38,13 @@
 
 .js-hiraku-offcanvas-body-right,
 .js-hiraku-offcanvas-body-left {
-	overflow: hidden;
 }
 
 .js-hiraku-offcanvas-body-right {
-	overflow-y: hidden;
 	transform: translateX(- $side-menu-width);
 }
 
 .js-hiraku-offcanvas-body-left {
-	overflow-y: hidden;
 	left: $side-menu-width;
 }
 

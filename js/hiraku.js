@@ -46,6 +46,8 @@ var Hiraku = function () {
     this.windowWidth = 0;
     this.id = (0, _lib.getUniqId)();
     this.opened = false;
+    this.scrollAmount = 0;
+    this.oldPosY = 0;
     window.addEventListener('resize', function () {
       if ('requestAnimationFrame' in window) {
         cancelAnimationFrame(_this.animationFrameId);
@@ -56,8 +58,11 @@ var Hiraku = function () {
         _this.resizeHandler();
       }
     });
+    window.addEventListener('touchstart', function (e) {
+      _this._onTouchStart(e);
+    });
     window.addEventListener('touchmove', function (e) {
-      _this._onScroll();
+      _this._onScroll(e);
     });
     this._setHirakuSideMenu(this.side, this.id);
     this._setHirakuBtn(this.btn, this.id);
@@ -66,11 +71,23 @@ var Hiraku = function () {
   }
 
   _createClass(Hiraku, [{
+    key: '_onTouchStart',
+    value: function _onTouchStart(e) {
+      this.oldPosY = this._getTouchPos(e).y;
+    }
+  }, {
     key: '_onScroll',
-    value: function _onScroll() {
-      if (this.opened === true) {
-        e.preventDefault();
+    value: function _onScroll(e) {
+      if (this.opened === false) {
+        return;
       }
+      e.preventDefault();
+      var posY = this._getTouchPos(e).y;
+      var y = posY - this.oldPosY;
+      this.scrollAmount += y;
+      console.log(posY, this.oldPosY);
+      this.side.style.marginTop = this.scrollAmount + 'px';
+      this.oldPosY = posY;
     }
   }, {
     key: '_setHirakuSideMenu',

@@ -21,6 +21,8 @@ export default class Hiraku {
     this.windowWidth = 0;
     this.id = getUniqId();
     this.opened = false;
+    this.scrollAmount = 0;
+    this.oldPosY = 0;
     window.addEventListener('resize', () => {
       if ('requestAnimationFrame' in window) {
         cancelAnimationFrame(this.animationFrameId);
@@ -31,8 +33,11 @@ export default class Hiraku {
         this.resizeHandler();
       }
     });
+    window.addEventListener('touchstart', (e) => {
+      this._onTouchStart(e);
+    });
     window.addEventListener('touchmove', (e) => {
-      this._onScroll();
+      this._onScroll(e);
     });
     this._setHirakuSideMenu(this.side, this.id);
     this._setHirakuBtn(this.btn, this.id);
@@ -40,10 +45,21 @@ export default class Hiraku {
     this.resizeHandler();
   }
 
-  _onScroll() {
-    if (this.opened === true) {
-      e.preventDefault();
+  _onTouchStart(e) {
+    this.oldPosY = this._getTouchPos(e).y;
+  }
+
+  _onScroll(e) {
+    if (this.opened === false) {
+      return;
     }
+    e.preventDefault();
+    const posY = this._getTouchPos(e).y;
+    const y = posY - this.oldPosY;
+    this.scrollAmount += y;
+    console.log(posY, this.oldPosY);
+    this.side.style.marginTop = `${this.scrollAmount}px`;
+    this.oldPosY = posY;
   }
 
   _setHirakuSideMenu(side, id) {
