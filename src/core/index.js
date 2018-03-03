@@ -23,6 +23,7 @@ export default class Hiraku {
     this.opened = false;
     this.scrollAmount = 0;
     this.oldPosY = 0;
+    this.vy = 0;
     window.addEventListener('resize', () => {
       if ('requestAnimationFrame' in window) {
         cancelAnimationFrame(this.animationFrameId);
@@ -37,8 +38,11 @@ export default class Hiraku {
       this._onTouchStart(e);
     });
     window.addEventListener('touchmove', (e) => {
-      this._onScroll(e);
+      this._onTouchMove(e);
     });
+    window.addEventListener('touchend', (e) => {
+      this._onTouchEnd(e);
+    })
     this._setHirakuSideMenu(this.side, this.id);
     this._setHirakuBtn(this.btn, this.id);
     this._setHirakuBody(this.body);
@@ -46,10 +50,12 @@ export default class Hiraku {
   }
 
   _onTouchStart(e) {
+    this.vy = 0;
+    this.side.style.height = 'auto';
     this.oldPosY = this._getTouchPos(e).y;
   }
 
-  _onScroll(e) {
+  _onTouchMove(e) {
     if (this.opened === false) {
       return;
     }
@@ -58,16 +64,42 @@ export default class Hiraku {
     const y = posY - this.oldPosY;
     const limitHeight = this.side.offsetHeight - getWindowHeight();
     this.scrollAmount += y;
-    console.log(this.side.offsetHeight, getWindowHeight());
     if (this.scrollAmount < -limitHeight) {
       this.scrollAmount = -limitHeight;
     }
     if (this.scrollAmount > 0) {
       this.scrollAmount = 0;
     }
-    console.log(this.scrollAmount);
     this.side.style.marginTop = `${this.scrollAmount}px`;
     this.oldPosY = posY;
+    this.vy = y;
+  }
+
+  _onTouchEnd(e) {
+    const limitHeight = this.side.offsetHeight - getWindowHeight();
+    const registance = 0.3;
+
+    const interval = setInterval(() => {
+      if (this.vy > 0) {
+        this.vy -= registance;
+      }
+      if (this.vy < 0) {
+        this.vy += registance;
+      }
+      if (Math.abs(this.vy) < registance) {
+        clearInterval(interval);
+      }
+      this.scrollAmount += this.vy;
+      if (this.scrollAmount < -limitHeight) {
+        clearInterval(interval);
+        this.scrollAmount = -limitHeight;
+      }
+      if (this.scrollAmount > 0) {
+        clearInterval(interval);
+        this.scrollAmount = 0;
+      }
+      this.side.style.marginTop = `${this.scrollAmount}px`;
+    }, 10);
   }
 
   _setHirakuSideMenu(side, id) {
@@ -143,7 +175,9 @@ export default class Hiraku {
     if (fixed) {
       fixed.style.transform = `translateY(${getScrollTop()}px)`;
     }
+    side.style.height = `${window.innerHeight}px`; 
     side.style.transform = `translateX(100%) translateY(${getScrollTop()}px)`;
+    side.style.marginTop = '0px';
   }
 
   close() {

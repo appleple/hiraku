@@ -22,6 +22,7 @@
   top: 0;
   max-width: 100%;
   background-color: #fff;
+  overflow-y: scroll;
   box-sizing: border-box;
 }
 
@@ -39,11 +40,18 @@
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+.js-hiraku-offcanvas-body-right,
+.js-hiraku-offcanvas-body-left {
+  overflow: hidden;
+}
+
 .js-hiraku-offcanvas-body-right {
+  overflow-y: hidden;
   transform: translateX(-70%);
 }
 
 .js-hiraku-offcanvas-body-left {
+  overflow-y: hidden;
   left: 70%;
 }
 
