@@ -182,7 +182,7 @@ export default class Hiraku {
   }
 
   close() {
-    const { body, fixed, btn } = this;
+    const { body, fixed, btn, side } = this;
     const { direction } = this.opt;
     const onTransitionEnd = () => {
       fixed.style.transform = 'translateY(0px)';
@@ -199,6 +199,8 @@ export default class Hiraku {
     }
     body.addEventListener('webkitTransitionEnd', onTransitionEnd);
     body.addEventListener('transitionend', onTransitionEnd);
+    side.style.transform = '';
+    side.setAttribute('aria-hidden', false);
   }
 
   offcanvasClickHandler(e) {
@@ -249,10 +251,7 @@ export default class Hiraku {
       side.setAttribute('aria-hidden', true);
     } else {
       removeClass(body, 'js-hiraku-offcanvas-body-active');
-      side.style.transform = '';
-      side.setAttribute('aria-hidden', false);
-      side.click();
+      this.close();
     }
   }
-
 }

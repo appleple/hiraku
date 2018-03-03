@@ -238,7 +238,8 @@ var Hiraku = function () {
 
       var body = this.body,
           fixed = this.fixed,
-          btn = this.btn;
+          btn = this.btn,
+          side = this.side;
       var direction = this.opt.direction;
 
       var onTransitionEnd = function onTransitionEnd() {
@@ -256,6 +257,8 @@ var Hiraku = function () {
       }
       body.addEventListener('webkitTransitionEnd', onTransitionEnd);
       body.addEventListener('transitionend', onTransitionEnd);
+      side.style.transform = '';
+      side.setAttribute('aria-hidden', false);
     }
   }, {
     key: 'offcanvasClickHandler',
@@ -314,9 +317,7 @@ var Hiraku = function () {
         side.setAttribute('aria-hidden', true);
       } else {
         (0, _lib.removeClass)(body, 'js-hiraku-offcanvas-body-active');
-        side.style.transform = '';
-        side.setAttribute('aria-hidden', false);
-        side.click();
+        this.close();
       }
     }
   }]);
