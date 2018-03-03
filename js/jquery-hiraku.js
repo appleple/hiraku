@@ -251,6 +251,7 @@ var Hiraku = function () {
       if (fixed) {
         fixed.style.transform = 'translateY(' + (0, _lib.getScrollTop)() + 'px)';
       }
+      this.scrollAmount = 0;
       side.style.height = window.innerHeight + 'px';
       side.style.transform = 'translateX(100%) translateY(' + (0, _lib.getScrollTop)() + 'px)';
       side.style.marginTop = '0px';
