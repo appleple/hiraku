@@ -804,12 +804,12 @@ function scroll() {
 },{"raf":2,"tween":3}],9:[function(require,module,exports){
 'use strict';
 
-var hiraku = require('../index');
+var Hiraku = require('../index');
 
 var applyJQuery = function applyJQuery(jQuery) {
   jQuery.fn.hiraku = function (settings) {
     if (typeof settings === 'strings') {} else {
-      new hiraku(this, settings);
+      new Hiraku(this.get(0), settings);
     }
     return this;
   };
@@ -863,9 +863,9 @@ var Hiraku = function () {
 
     this.body = document.querySelector('body');
     this.opt = Object.assign({}, defaults, opt);
-    this.side = document.querySelector(selector);
-    this.btn = document.querySelector(opt.btn);
-    this.fixed = document.querySelector(opt.fixedHeader);
+    this.side = typeof selector === 'string' ? document.querySelector(selector) : selector;
+    this.btn = typeof opt.btn === 'string' ? document.querySelector(opt.btn) : opt.btn;
+    this.fixed = typeof opt.fixedHeader === 'string' ? document.querySelector(opt.fixedHeader) : opt.fixedHeader;
     this.windowWidth = 0;
     this.id = (0, _lib.getUniqId)();
     this.opened = false;

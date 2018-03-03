@@ -16,9 +16,9 @@ export default class Hiraku {
   constructor(selector, opt) {
     this.body = document.querySelector('body');
     this.opt = Object.assign({}, defaults, opt);
-    this.side = document.querySelector(selector);
-    this.btn = document.querySelector(opt.btn);
-    this.fixed = document.querySelector(opt.fixedHeader);
+    this.side = typeof selector === 'string' ? document.querySelector(selector) : selector;
+    this.btn = typeof opt.btn === 'string' ? document.querySelector(opt.btn) : opt.btn;
+    this.fixed = typeof opt.fixedHeader === 'string' ? document.querySelector(opt.fixedHeader) : opt.fixedHeader;
     this.windowWidth = 0;
     this.id = getUniqId();
     this.opened = false;
