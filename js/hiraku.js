@@ -906,9 +906,9 @@ var Hiraku = function () {
       var _this2 = this;
 
       var limitHeight = this.side.offsetHeight - (0, _lib.getWindowHeight)();
-      var registance = 0.3;
+      var registance = 0.4;
 
-      var interval = setInterval(function () {
+      var interval = function interval() {
         if (_this2.vy > 0) {
           _this2.vy -= registance;
         }
@@ -916,19 +916,21 @@ var Hiraku = function () {
           _this2.vy += registance;
         }
         if (Math.abs(_this2.vy) < registance) {
-          clearInterval(interval);
+          return;
         }
         _this2.scrollAmount += _this2.vy;
         if (_this2.scrollAmount < -limitHeight) {
-          clearInterval(interval);
           _this2.scrollAmount = -limitHeight;
+          return;
         }
         if (_this2.scrollAmount > 0) {
-          clearInterval(interval);
           _this2.scrollAmount = 0;
+          return;
         }
         _this2.side.style.marginTop = _this2.scrollAmount + 'px';
-      }, 10);
+        window.requestAnimationFrame(interval);
+      };
+      window.requestAnimationFrame(interval);
     }
   }, {
     key: '_setHirakuSideMenu',

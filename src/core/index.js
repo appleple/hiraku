@@ -78,9 +78,9 @@ export default class Hiraku {
 
   _onTouchEnd(e) {
     const limitHeight = this.side.offsetHeight - getWindowHeight();
-    const registance = 0.3;
+    const registance = 0.4;
 
-    const interval = setInterval(() => {
+    const interval = () => {
       if (this.vy > 0) {
         this.vy -= registance;
       }
@@ -88,19 +88,21 @@ export default class Hiraku {
         this.vy += registance;
       }
       if (Math.abs(this.vy) < registance) {
-        clearInterval(interval);
+        return;
       }
       this.scrollAmount += this.vy;
       if (this.scrollAmount < -limitHeight) {
-        clearInterval(interval);
         this.scrollAmount = -limitHeight;
+        return;
       }
       if (this.scrollAmount > 0) {
-        clearInterval(interval);
         this.scrollAmount = 0;
+        return;
       }
       this.side.style.marginTop = `${this.scrollAmount}px`;
-    }, 10);
+      window.requestAnimationFrame(interval);
+    };
+    window.requestAnimationFrame(interval);
   }
 
   _setHirakuSideMenu(side, id) {
