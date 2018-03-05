@@ -49,7 +49,7 @@ export default class Hiraku {
     this._setHirakuBody(this.body);
     this._resizeHandler();
   }
-  
+
   open() {
     const { side, btn, fixed, parent, body } = this;
     const { direction, focusableElements } = this.opt;
@@ -84,7 +84,11 @@ export default class Hiraku {
     }
     this.scrollAmount = 0;
     side.style.height = `${window.innerHeight}px`; 
-    side.style.transform = `translateX(100%) translateY(${getScrollTop()}px)`;
+    if (direction === 'right') {
+      side.style.transform = `translateX(100%) translateY(${getScrollTop()}px)`;
+    } else {
+      side.style.transform = `translateX(-100%) translateY(${getScrollTop()}px)`;
+    }
     side.style.marginTop = '0px';
   }
 

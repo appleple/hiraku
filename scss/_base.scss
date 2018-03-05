@@ -6,7 +6,9 @@
 	}
 	
 	.js-hiraku-offcanvas-sidebar-left {
-		transform: translateX($side-menu-width);
+		left: 0;
+		right: auto;
+		transform: translateX(-100%);
 	}
 
 	.js-hiraku-offcanvas-sidebar-right,
@@ -20,6 +22,12 @@
 		background-color: #fff;
 		overflow-y: scroll;
 		box-sizing: border-box;
+	}
+	.js-hiraku-offcanvas-sidebar-left {
+		left: 0;
+	}
+	.js-hiraku-offcanvas-sidebar-right {
+		right: 0;
 	}
 }
 
@@ -49,7 +57,7 @@
 
 .js-hiraku-offcanvas-body-left {
 	overflow-y: hidden;
-	left: $side-menu-width;
+	transform: translateX($side-menu-width);
 }
 
 .js-hiraku-offcanvas-body-right .js-hiraku-offcanvas,
@@ -57,11 +65,18 @@
 	display: block;
 	position: fixed;
 	top: 0;
-	right: 0;
 	z-index: 100001;
 	width: 100%;
 	height: 100%;
 	background: $offcanvas-overlay;
+}
+
+.js-hiraku-offcanvas-body-right .js-hiraku-offcanvas {
+	right: 0;
+}
+
+.js-hiraku-offcanvas-body-left .js-hiraku-offcanvas {
+	left: 0;
 }
 
 .js-hiraku-offcanvas-close-btn {
