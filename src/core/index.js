@@ -44,14 +44,14 @@ export default class Hiraku {
     window.addEventListener('touchend', (e) => {
       this._onTouchEnd(e);
     })
-    this._setHirakuSideMenu(this.side, this.id);
-    this._setHirakuBtn(this.btn, this.id);
-    this._setHirakuBody(this.body);
+    this._setHirakuSideMenu();
+    this._setHirakuBtn();
+    this._setHirakuBody();
     this._resizeHandler();
   }
 
   open() {
-    const { side, btn, fixed, parent, body } = this;
+    const { side, btn, fixed, parentElement, body } = this;
     const { direction, focusableElements } = this.opt;
     const elements = side.querySelectorAll(focusableElements);
     const first = elements[0];
@@ -73,7 +73,7 @@ export default class Hiraku {
     last.addEventListener('keydown', firstFocus);
     btn.setAttribute('aria-expanded', true);
     addClass(btn, 'js-hiraku-offcanvas-btn-active');
-    parent.setAttribute('aria-hidden', false);
+    parentElement.setAttribute('aria-hidden', false);
     if (direction === 'right') {
       addClass(body, 'js-hiraku-offcanvas-body-right');
     } else {
@@ -170,7 +170,8 @@ export default class Hiraku {
     window.requestAnimationFrame(interval);
   }
 
-  _setHirakuSideMenu(side, id) {
+  _setHirakuSideMenu() {
+    const {side, id} = this;
     const { closeLabel, direction } = this.opt;
     const links = side.querySelectorAll('a');
     after(side, '<div class="js-hiraku-offcanvas"></div>');
@@ -183,14 +184,14 @@ export default class Hiraku {
     side.setAttribute('aria-labelledby', `hiraku-offcanvas-btn-${id}`);
     side.setAttribute('id', id);
     side.setAttribute('aria-label', closeLabel);
-    this.parent = side.nextElementSibling;
-    this.parent.addEventListener('click', (e) => {
+    this.parentElement = side.nextElementSibling;
+    this.parentElement.addEventListener('click', (e) => {
       this._offcanvasClickHandler(e);
     });
-    this.parent.addEventListener('touchstart', (e) => {
+    this.parentElement.addEventListener('touchstart', (e) => {
       this._offcanvasClickHandler(e);
     });
-    this.parent.addEventListener('keyup', (e) => {
+    this.parentElement.addEventListener('keyup', (e) => {
       this._offcanvasClickHandler(e);
     });
     [].forEach.call(links, (link) => {
@@ -211,7 +212,8 @@ export default class Hiraku {
     });
   }
 
-  _setHirakuBtn(btn, id) {
+  _setHirakuBtn() {
+    const {btn, id} = this;
     const { btnLabel } = this.opt;
     addClass(btn, 'js-hiraku-offcanvas-btn');
     btn.setAttribute('aria-expanded', false);
@@ -223,17 +225,17 @@ export default class Hiraku {
     });
   }
 
-  _setHirakuBody(body) {
-    const { direction } = this.opt;
+  _setHirakuBody() {
+    const body = this.body;
     addClass(body, 'js-hiraku-offcanvas-body');
   }
 
   _offcanvasClickHandler(e) {
-    const { parent } = this;
+    const { parentElement } = this;
 		if (e.type === 'keyup' && e.keyCode !== 27) {
 			return;
     }
-    if (e.target !== parent) {
+    if (e.target !== parentElement) {
       return;
     }
     this.close();
