@@ -83,7 +83,7 @@ export default class Hiraku {
       fixed.style.transform = `translateY(${getScrollTop()}px)`;
     }
     this.scrollAmount = 0;
-    side.style.height = `${window.innerHeight}px`; 
+    side.style.height = `${getWindowHeight()}px`; 
     if (direction === 'right') {
       side.style.transform = `translateX(100%) translateY(${getScrollTop()}px)`;
     } else {

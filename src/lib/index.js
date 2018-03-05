@@ -12,12 +12,13 @@ export const getWindowWidth = () => {
 }
 
 export const getWindowHeight = () => {
-  if (document && document.documentElement) {
-    return document.documentElement.clientHeight;
-  } else if (window && window.innerHeight) {
+  if (window && window.innerHeight) {
     return window.innerHeight;
+  } else if (document && document.documentElement) {
+    return document.documentElement.clientHeight;
+  } else {
+    return 0;
   }
-  return 0;
 }
 
 export const hasClass = (el, className) => {

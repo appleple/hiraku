@@ -914,7 +914,7 @@ var Hiraku = function () {
         fixed.style.transform = 'translateY(' + (0, _lib.getScrollTop)() + 'px)';
       }
       this.scrollAmount = 0;
-      side.style.height = window.innerHeight + 'px';
+      side.style.height = (0, _lib.getWindowHeight)() + 'px';
       if (direction === 'right') {
         side.style.transform = 'translateX(100%) translateY(' + (0, _lib.getScrollTop)() + 'px)';
       } else {
@@ -1176,12 +1176,13 @@ var getWindowWidth = exports.getWindowWidth = function getWindowWidth() {
 };
 
 var getWindowHeight = exports.getWindowHeight = function getWindowHeight() {
-  if (document && document.documentElement) {
-    return document.documentElement.clientHeight;
-  } else if (window && window.innerHeight) {
+  if (window && window.innerHeight) {
     return window.innerHeight;
+  } else if (document && document.documentElement) {
+    return document.documentElement.clientHeight;
+  } else {
+    return 0;
   }
-  return 0;
 };
 
 var hasClass = exports.hasClass = function hasClass(el, className) {

@@ -60,6 +60,7 @@
   "dependencies": {
     "custom-event-polyfill": "^0.3.0",
     "es6-promise-polyfill": "^1.2.0",
+    "ios-inner-height": "^1.0.2",
     "scroll-to-element": "^2.0.0"
   }
 }
