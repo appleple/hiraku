@@ -29,10 +29,10 @@ export default class Hiraku {
       if ('requestAnimationFrame' in window) {
         cancelAnimationFrame(this.animationFrameId);
         this.animationFrameId = requestAnimationFrame(() => {
-          this.resizeHandler();
+          this._resizeHandler();
         });
       } else {
-        this.resizeHandler();
+        this._resizeHandler();
       }
     });
     window.addEventListener('touchstart', (e) => {
@@ -47,7 +47,68 @@ export default class Hiraku {
     this._setHirakuSideMenu(this.side, this.id);
     this._setHirakuBtn(this.btn, this.id);
     this._setHirakuBody(this.body);
-    this.resizeHandler();
+    this._resizeHandler();
+  }
+  
+  open() {
+    const { side, btn, fixed, parent, body } = this;
+    const { direction, focusableElements } = this.opt;
+    const elements = side.querySelectorAll(focusableElements);
+    const first = elements[0];
+    const last = elements[elements.length - 1];
+    const lastFocus = (e) => {
+      if (e.which === 9 && e.shiftKey) {
+        last.focus();
+      }
+    }
+    const firstFocus = (e) => {
+      if (e.which === 9 && !e.shiftKey) {
+        first.focus();
+      }
+    }
+    this.opened = true;
+    first.removeEventListener('keydown', lastFocus);
+    first.addEventListener('keydown', lastFocus);
+    last.removeEventListener('keydown', firstFocus);
+    last.addEventListener('keydown', firstFocus);
+    btn.setAttribute('aria-expanded', true);
+    addClass(btn, 'js-hiraku-offcanvas-btn-active');
+    parent.setAttribute('aria-hidden', false);
+    if (direction === 'right') {
+      addClass(body, 'js-hiraku-offcanvas-body-right');
+    } else {
+      addClass(body, 'js-hiraku-offcanvas-body-left');
+    }
+    if (fixed) {
+      fixed.style.transform = `translateY(${getScrollTop()}px)`;
+    }
+    this.scrollAmount = 0;
+    side.style.height = `${window.innerHeight}px`; 
+    side.style.transform = `translateX(100%) translateY(${getScrollTop()}px)`;
+    side.style.marginTop = '0px';
+  }
+
+  close(callback = () => {}) {
+    const { body, fixed, btn, side } = this;
+    const { direction } = this.opt;
+    const onTransitionEnd = () => {
+      fixed.style.transform = 'translateY(0px)';
+      body.removeEventListener('webkitTransitionEnd', onTransitionEnd);
+      body.removeEventListener('transitionend', onTransitionEnd);
+      btn.setAttribute('aria-expanded', false);
+      side.style.transform = '';
+      side.setAttribute('aria-hidden', false);
+      removeClass(btn, 'js-hiraku-offcanvas-btn-active');
+      this.opened = false;
+      callback();
+    }
+    if (direction === 'right') {
+      removeClass(body, 'js-hiraku-offcanvas-body-right');
+    } else {
+      removeClass(body, 'js-hiraku-offcanvas-body-left');
+    }
+    body.addEventListener('webkitTransitionEnd', onTransitionEnd);
+    body.addEventListener('transitionend', onTransitionEnd);
   }
 
   _onTouchStart(e) {
@@ -120,13 +181,13 @@ export default class Hiraku {
     side.setAttribute('aria-label', closeLabel);
     this.parent = side.nextElementSibling;
     parent.addEventListener('click', (e) => {
-      this.offcanvasClickHandler(e);
+      this._offcanvasClickHandler(e);
     });
     parent.addEventListener('touchstart', (e) => {
-      this.offcanvasClickHandler(e);
+      this._offcanvasClickHandler(e);
     });
     parent.addEventListener('keyup', (e) => {
-      this.offcanvasClickHandler(e);
+      this._offcanvasClickHandler(e);
     });
     [].forEach.call(links, (link) => {
       link.addEventListener('click', (e) => {
@@ -163,68 +224,7 @@ export default class Hiraku {
     addClass(body, 'js-hiraku-offcanvas-body');
   }
 
-  open() {
-    const { side, btn, fixed, parent, body } = this;
-    const { direction, focusableElements } = this.opt;
-    const elements = side.querySelectorAll(focusableElements);
-    const first = elements[0];
-    const last = elements[elements.length - 1];
-    const lastFocus = (e) => {
-      if (e.which === 9 && e.shiftKey) {
-        last.focus();
-      }
-    }
-    const firstFocus = (e) => {
-      if (e.which === 9 && !e.shiftKey) {
-        first.focus();
-      }
-    }
-    this.opened = true;
-    first.removeEventListener('keydown', lastFocus);
-    first.addEventListener('keydown', lastFocus);
-    last.removeEventListener('keydown', firstFocus);
-    last.addEventListener('keydown', firstFocus);
-    btn.setAttribute('aria-expanded', true);
-    addClass(btn, 'js-hiraku-offcanvas-btn-active');
-    parent.setAttribute('aria-hidden', false);
-    if (direction === 'right') {
-      addClass(body, 'js-hiraku-offcanvas-body-right');
-    } else {
-      addClass(body, 'js-hiraku-offcanvas-body-left');
-    }
-    if (fixed) {
-      fixed.style.transform = `translateY(${getScrollTop()}px)`;
-    }
-    this.scrollAmount = 0;
-    side.style.height = `${window.innerHeight}px`; 
-    side.style.transform = `translateX(100%) translateY(${getScrollTop()}px)`;
-    side.style.marginTop = '0px';
-  }
-
-  close(callback = () => {}) {
-    const { body, fixed, btn, side } = this;
-    const { direction } = this.opt;
-    const onTransitionEnd = () => {
-      fixed.style.transform = 'translateY(0px)';
-      body.removeEventListener('webkitTransitionEnd', onTransitionEnd);
-      body.removeEventListener('transitionend', onTransitionEnd);
-      btn.setAttribute('aria-expanded', false);
-      side.style.transform = '';
-      side.setAttribute('aria-hidden', false);
-      removeClass(btn, 'js-hiraku-offcanvas-btn-active');
-      this.opened = false;
-      callback();
-    }
-    if (direction === 'right') {
-      removeClass(body, 'js-hiraku-offcanvas-body-right');
-    } else {
-      removeClass(body, 'js-hiraku-offcanvas-body-left');
-    }
-    body.addEventListener('webkitTransitionEnd', onTransitionEnd);
-    body.addEventListener('transitionend', onTransitionEnd);
-  }
-
-  offcanvasClickHandler(e) {
+  _offcanvasClickHandler(e) {
     const { parent } = this;
 		if (e.type === 'keyup' && e.keyCode !== 27) {
 			return;
@@ -256,7 +256,7 @@ export default class Hiraku {
     return { x, y };
   }
   
-  resizeHandler() {
+  _resizeHandler() {
     const windowWidth = getWindowWidth();
     const { body, side, opt } = this;
     const { breakpoint } = opt;
