@@ -184,13 +184,13 @@ export default class Hiraku {
     side.setAttribute('id', id);
     side.setAttribute('aria-label', closeLabel);
     this.parent = side.nextElementSibling;
-    parent.addEventListener('click', (e) => {
+    this.parent.addEventListener('click', (e) => {
       this._offcanvasClickHandler(e);
     });
-    parent.addEventListener('touchstart', (e) => {
+    this.parent.addEventListener('touchstart', (e) => {
       this._offcanvasClickHandler(e);
     });
-    parent.addEventListener('keyup', (e) => {
+    this.parent.addEventListener('keyup', (e) => {
       this._offcanvasClickHandler(e);
     });
     [].forEach.call(links, (link) => {

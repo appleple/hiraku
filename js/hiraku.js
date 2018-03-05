@@ -1034,13 +1034,13 @@ var Hiraku = function () {
       side.setAttribute('id', id);
       side.setAttribute('aria-label', closeLabel);
       this.parent = side.nextElementSibling;
-      parent.addEventListener('click', function (e) {
+      this.parent.addEventListener('click', function (e) {
         _this4._offcanvasClickHandler(e);
       });
-      parent.addEventListener('touchstart', function (e) {
+      this.parent.addEventListener('touchstart', function (e) {
         _this4._offcanvasClickHandler(e);
       });
-      parent.addEventListener('keyup', function (e) {
+      this.parent.addEventListener('keyup', function (e) {
         _this4._offcanvasClickHandler(e);
       });
       [].forEach.call(links, function (link) {
