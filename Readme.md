@@ -1,5 +1,8 @@
 # hiraku.js - jQuery Offcanvas Menu Plugin
 
+## This repository has already been deprecated. consider using the new version of hiraku
+https://github.com/appleple/hiraku2
+
 We made jQuery plugin called hiraku.js so that more people can use Offcanvas-menu functionality which is used in a CMS we make.
 
 You can easily find source code or plugins for Offcanvas-menu via Google by searching with "offcanvas JavaScript", but we can't find any plugins which meet all features that hiraku.js has. That's Why we made it from the scratch.
